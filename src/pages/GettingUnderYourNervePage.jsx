@@ -281,7 +281,7 @@ export default function GettingUnderYourNervePage() {
                 your patience against deadly traps and unforgiving gameplay.
               </p>
               <a
-                href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=sharing"
+                href="/zip/GettingUnderYourNerve.zip"
                 download
                 className="inline-flex px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
               >
