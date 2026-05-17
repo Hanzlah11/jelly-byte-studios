@@ -1,4 +1,19 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+// --- REUSABLE ANIMATION WRAPPER ---
+// This component handles the floating scroll effect
+const FadeUp = ({ children, delay = 0, className = "" }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
 // --- FEEDBACK FORM COMPONENT ---
 function FeedbackForm() {
@@ -40,9 +55,13 @@ function FeedbackForm() {
       </div>
 
       {status === "success" ? (
-        <div className="p-6 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-center font-medium text-lg">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="p-6 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-center font-medium text-lg"
+        >
           Thanks for the feedback! We appreciate it.
-        </div>
+        </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
           <input type="hidden" name="subject" value="New Feedback for Getting Under Your Nerve!" />
@@ -174,7 +193,8 @@ export default function GettingUnderYourNervePage() {
         {/* HERO SECTION */}
         <section className="relative min-h-[90vh] flex items-center px-6 py-20">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative flex justify-center">
+            
+            <FadeUp delay={0.1} className="relative flex justify-center">
               <div className="absolute -inset-4 bg-gradient-to-r from-red-500 to-orange-500 opacity-30 blur-3xl rounded-full" />
               <div className="relative rounded-[2rem] overflow-hidden border border-orange-500/20 shadow-2xl shadow-orange-500/20 max-w-md">
                 <img
@@ -183,9 +203,9 @@ export default function GettingUnderYourNervePage() {
                   className="w-full object-cover"
                 />
               </div>
-            </div>
+            </FadeUp>
 
-            <div className="space-y-8">
+            <FadeUp delay={0.3} className="space-y-8">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-300 text-sm">
                 <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
                 Precision Platformer
@@ -213,14 +233,14 @@ export default function GettingUnderYourNervePage() {
                 <span className="px-4 py-2 rounded-xl border border-white/10 bg-white/5">Steam</span>
                 <span className="px-4 py-2 rounded-xl border border-white/10 bg-white/5">Hardcore</span>
               </div>
-            </div>
+            </FadeUp>
           </div>
         </section>
 
         {/* ABOUT SECTION */}
         <section id="about" className="relative py-28 px-6 border-t border-white/10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div>
+            <FadeUp>
               <p className="text-orange-400 uppercase tracking-[0.25em] font-semibold mb-4">
                 About The Game
               </p>
@@ -238,11 +258,18 @@ export default function GettingUnderYourNervePage() {
                 vehicula. Suspendisse potenti. Nulla facilisi. Cras tincidunt
                 faucibus erat, sed feugiat lorem pretium sed.
               </p>
-            </div>
+            </FadeUp>
             <div className="grid gap-6">
-              <img src="/images/screenshot-1.jpg" alt="Gameplay 1" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
-              <img src="/images/screenshot-2.jpg" alt="Gameplay 2" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
-              <img src="/images/screenshot-3.jpg" alt="Gameplay 3" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+              {/* Staggered image animations */}
+              <FadeUp delay={0.1}>
+                <img src="/images/screenshot-1.jpg" alt="Gameplay 1" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+              </FadeUp>
+              <FadeUp delay={0.2}>
+                <img src="/images/screenshot-2.jpg" alt="Gameplay 2" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+              </FadeUp>
+              <FadeUp delay={0.3}>
+                <img src="/images/screenshot-3.jpg" alt="Gameplay 3" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+              </FadeUp>
             </div>
           </div>
         </section>
@@ -250,26 +277,26 @@ export default function GettingUnderYourNervePage() {
         {/* TRAILER SECTION */}
         <section className="py-28 px-6 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-12">
+            <FadeUp className="mb-12">
               <p className="text-orange-400 uppercase tracking-[0.25em] font-semibold mb-4">
                 Official Trailer
               </p>
               <h3 className="font-bebas text-5xl md:text-7xl">
                 Watch The Chaos
               </h3>
-            </div>
-            <div className="rounded-[2rem] overflow-hidden border border-orange-500/20 bg-black shadow-2xl shadow-orange-500/10">
+            </FadeUp>
+            <FadeUp delay={0.2} className="rounded-[2rem] overflow-hidden border border-orange-500/20 bg-black shadow-2xl shadow-orange-500/10">
               <video controls className="w-full">
                 <source src="/videos/trailer.mp4" type="video/mp4" />
               </video>
-            </div>
+            </FadeUp>
           </div>
         </section>
 
         {/* DOWNLOAD + REVIEWS */}
         <section id="download" className="py-28 px-6 border-t border-white/10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
-            <div>
+            <FadeUp>
               <p className="text-orange-400 uppercase tracking-[0.25em] font-semibold mb-4">
                 Download
               </p>
@@ -287,21 +314,26 @@ export default function GettingUnderYourNervePage() {
               >
                 Download Now
               </a>
-            </div>
+            </FadeUp>
+            
             <div>
-              <p className="text-orange-400 uppercase tracking-[0.25em] font-semibold mb-4">
-                Public Reviews
-              </p>
+              <FadeUp>
+                <p className="text-orange-400 uppercase tracking-[0.25em] font-semibold mb-4">
+                  Public Reviews
+                </p>
+              </FadeUp>
               <div className="space-y-6">
-                {reviews.map((review) => (
-                  <div key={review.id} className="p-8 rounded-[2rem] border border-white/10 bg-white/[0.03]">
-                    <h4 className="text-2xl font-bold mb-4 text-orange-300">
-                      {review.name}
-                    </h4>
-                    <p className="text-gray-300 leading-relaxed text-lg">
-                      "{review.review}"
-                    </p>
-                  </div>
+                {reviews.map((review, index) => (
+                  <FadeUp key={review.id} delay={0.1 * (index + 1)}>
+                    <div className="p-8 rounded-[2rem] border border-white/10 bg-white/[0.03]">
+                      <h4 className="text-2xl font-bold mb-4 text-orange-300">
+                        {review.name}
+                      </h4>
+                      <p className="text-gray-300 leading-relaxed text-lg">
+                        "{review.review}"
+                      </p>
+                    </div>
+                  </FadeUp>
                 ))}
               </div>
             </div>
@@ -310,12 +342,11 @@ export default function GettingUnderYourNervePage() {
 
         {/* FEEDBACK SECTION */}
         <section id="feedback" className="py-28 px-6 border-t border-white/10 relative">
-          {/* Subtle background glow for feedback area */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[500px] rounded-full bg-red-500/10 blur-3xl pointer-events-none" />
           
-          <div className="max-w-7xl mx-auto relative z-10">
+          <FadeUp className="max-w-7xl mx-auto relative z-10">
             <FeedbackForm />
-          </div>
+          </FadeUp>
         </section>
 
         {/* FOOTER */}
