@@ -261,13 +261,13 @@ export default function GettingUnderYourNervePage() {
             </FadeUp>
             <div className="grid gap-6">
               <FadeUp delay={0.1}>
-                <img src="/images/screenshot-1.jpg" alt="Gameplay 1" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+                <img src="/images/screenshot-1.jpeg" alt="Gameplay 1" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
               </FadeUp>
               <FadeUp delay={0.2}>
-                <img src="/images/screenshot-2.jpg" alt="Gameplay 2" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+                <img src="/images/screenshot-2.jpeg" alt="Gameplay 2" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
               </FadeUp>
               <FadeUp delay={0.3}>
-                <img src="/images/screenshot-3.jpg" alt="Gameplay 3" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
+                <img src="/images/screenshot-3.jpeg" alt="Gameplay 3" className="h-64 w-full object-cover rounded-[2rem] border border-white/10 shadow-lg" />
               </FadeUp>
             </div>
           </div>
