@@ -120,18 +120,18 @@ export default function GettingUnderYourNervePage() {
   const reviews = [
     {
       id: 1,
-      name: "PixelForge",
-      review: "One of the most brutally satisfying indie platformers we've played in years.",
+      name: "TheNun",
+      review: "Creativity: 4.5/5, Fun: 5/5, UserExperience: -5/5, Overall: 4.5/5",
     },
     {
       id: 2,
-      name: "GameHorizon",
-      review: "Every jump feels dangerous. Every success feels earned.",
+      name: "Silicon",
+      review: "The game is geniunely fun, despite me raging a couple of times",
     },
     {
       id: 3,
-      name: "IndiePulse",
-      review: "A rage-inducing experience wrapped in beautiful pixel chaos.",
+      name: "AtrioxSun",
+      review: "Too hard bruv, make it easy",
     },
   ];
 
@@ -248,15 +248,19 @@ export default function GettingUnderYourNervePage() {
                 Precision.<br />Chaos.<br />Pain.
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed space-y-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum tincidunt nunc sit amet tellus suscipit, vitae
-                accumsan lorem fermentum. Donec posuere, odio sit amet
-                scelerisque consequat, massa augue ultricies lorem, quis
-                tincidunt ipsum purus sed neque.
+                Think you’ve mastered the 2D platformer? Think again. 
+                <strong className="text-orange-400"> Getting Under Your Nerve</strong> isn’t 
+                just a game—it’s a relentless psychological war engineered specifically to troll 
+                you at every single turn. This world doesn't care about fair play. Just when you think 
+                you’ve finally found a safe rhythm, the map shifts dynamically beneath your feet. 
+                Floors turn into flesh-melting hazards, stable ground vanishes into thin air, and hidden 
+                traps trigger out of absolutely nowhere, completely rewriting the rules of the level mid-air.
                 <br /><br />
-                Integer feugiat sem in ligula interdum, sed varius massa
-                vehicula. Suspendisse potenti. Nulla facilisi. Cras tincidunt
-                faucibus erat, sed feugiat lorem pretium sed.
+                Every single level is a meticulous puzzle of pain requiring pixel-perfect precision, 
+                split-second reactions, and a massive tolerance for beautiful chaos. This isn't about 
+                casual exploration; it's a brutal gauntlet designed to break you down and force you to 
+                adapt. Take a deep breath, accept the hundreds of inevitable deaths, and prepare for a 
+                high-octane ride that will test your raw platforming skill, your patience, and your sanity.
               </p>
             </FadeUp>
             <div className="grid gap-6">
@@ -307,7 +311,7 @@ export default function GettingUnderYourNervePage() {
                 your patience against deadly traps and unforgiving gameplay.
               </p>
               <a
-                href="/zip/GettingUnderYourNerve.zip"
+                href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=drive_link"
                 download
                 className="inline-flex px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
               >
