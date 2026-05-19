@@ -310,13 +310,39 @@ export default function GettingUnderYourNervePage() {
                 Download the latest build of Getting Under Your Nerve and test
                 your patience against deadly traps and unforgiving gameplay.
               </p>
-              <a
-                href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=drive_link"
-                download
-                className="inline-flex px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
-              >
-                Download Now
-              </a>
+                {/* ADD THIS */}
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-widest uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+                v0.1 Beta
+              </span>
+              <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Beta Release - active */}
+                  
+                    <a href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
+                    >
+                    <span>⚡</span>
+                    Beta Release
+                    </a>
+
+                    {/* Official Release - disabled */}
+                    <div className="relative group">
+                      <button
+                        disabled
+                        className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-gray-700 to-gray-600 font-bold text-lg text-gray-400 cursor-not-allowed shadow-2xl border border-white/10"
+                      >
+                        <span>🔒</span>
+                        Official Release
+                      </button>
+                      {/* Tooltip */}
+                      <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                        Coming Soon
+                      </div>
+                    </div>
+                  </div>
+
             </FadeUp>
 
             <div>
