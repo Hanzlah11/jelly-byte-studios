@@ -120,7 +120,7 @@ export default function GettingUnderYourNervePage() {
   const reviews = [
     {
       id: 1,
-      name: "TheNun",
+      name: "Basanti",
       review: "Creativity: 4.5/5, Fun: 5/5, UserExperience: -5/5, Overall: 4.5/5",
     },
     {
