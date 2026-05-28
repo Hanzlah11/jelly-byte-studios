@@ -186,6 +186,7 @@ export default function GettingUnderYourNervePage() {
               <a href="#about" className="hover:text-orange-400 transition">About</a>
               <a href="#download" className="hover:text-orange-400 transition">Download</a>
               <a href="#feedback" className="hover:text-orange-400 transition">Feedback</a>
+              <a href="/HowToPlayGettingUnderYourNerve" className="hover:text-orange-400 transition">How To Play</a>
             </nav>
           </div>
         </header>
