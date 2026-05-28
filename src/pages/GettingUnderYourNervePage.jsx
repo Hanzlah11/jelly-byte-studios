@@ -288,10 +288,14 @@ export default function GettingUnderYourNervePage() {
                 Watch The Chaos
               </h3>
             </FadeUp>
-            <FadeUp delay={0.2} className="rounded-[2rem] overflow-hidden border border-orange-500/20 bg-black shadow-2xl shadow-orange-500/10">
-              <video controls className="w-full">
-                <source src="/videos/trailer.mp4" type="video/mp4" />
-              </video>
+            <FadeUp delay={0.2} className="rounded-[2rem] overflow-hidden border border-orange-500/20 bg-black shadow-2xl shadow-orange-500/10 aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0"
+                title="Getting Under Your Nerve - Official Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </FadeUp>
           </div>
         </section>
