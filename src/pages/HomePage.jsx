@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "../context/AuthContext";
 
 // --- REUSABLE ANIMATION WRAPPER ---
 const FadeUp = ({ children, delay = 0, className = "" }) => (
@@ -75,6 +76,22 @@ function CarouselBackground() {
 
 // --- MAIN PAGE ---
 export default function HomePage() {
+  const { user, logout } = useAuth();
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   const games = [
     {
       id: 1,
@@ -151,13 +168,123 @@ export default function HomePage() {
               </div>
             </div>
 
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-              <a href="#home" className="hover:text-pink-400 transition">Home</a>
-              <a href="#releases" className="hover:text-pink-400 transition">Releases</a>
-              <a href="#about" className="hover:text-pink-400 transition">About</a>
-              <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
-            </nav>
+            <div className="flex items-center gap-6">
+              <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" className="hover:text-pink-400 transition">Home</a>
+                <a href="#releases" className="hover:text-pink-400 transition">Releases</a>
+                <a href="#about" className="hover:text-pink-400 transition">About</a>
+                <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
+              </nav>
+
+              {/* Auth Button / User Menu */}
+              {user ? (
+                <div className="relative" ref={dropdownRef}>
+                  <button
+                    id="user-menu-button"
+                    onClick={() => setShowDropdown(!showDropdown)}
+                    className="flex items-center gap-3 pl-3 pr-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-pink-500/30 hover:bg-white/10 transition-all group"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-pink-500/20">
+                      {user.avatar}
+                    </div>
+                    <span className="hidden sm:block text-sm font-medium text-gray-300 group-hover:text-white transition-colors max-w-[120px] truncate">
+                      {user.name}
+                    </span>
+                    <svg
+                      className={`w-4 h-4 text-gray-400 transition-transform ${showDropdown ? "rotate-180" : ""}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown */}
+                  <AnimatePresence>
+                    {showDropdown && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute right-0 mt-3 w-64 rounded-2xl border border-white/10 bg-[#12091e]/95 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden"
+                      >
+                        {/* User info */}
+                        <div className="px-5 py-4 border-b border-white/10">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20">
+                              {user.avatar}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="font-semibold text-white truncate">{user.name}</p>
+                              <p className="text-xs text-gray-400 truncate">{user.email}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Menu items */}
+                        <div className="py-2">
+                          <button
+                            id="logout-button"
+                            onClick={() => {
+                              logout();
+                              setShowDropdown(false);
+                            }}
+                            className="w-full flex items-center gap-3 px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-red-400 transition-colors"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                            Sign Out
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  id="navbar-login-button"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-orange-400 font-semibold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                  </svg>
+                  Login
+                </Link>
+              )}
+
+              {/* Mobile menu toggle */}
+              <button
+                id="mobile-menu-toggle"
+                className="md:hidden flex flex-col gap-1.5 p-2"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
+                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              </button>
+            </div>
           </div>
+
+          {/* Mobile menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden overflow-hidden border-t border-white/10"
+              >
+                <nav className="flex flex-col gap-1 px-6 py-4">
+                  <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Home</a>
+                  <a href="#releases" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Releases</a>
+                  <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">About</a>
+                  <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Contact</a>
+                </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </header>
 
         {/* Hero Section */}

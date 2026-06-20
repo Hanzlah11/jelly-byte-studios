@@ -1,33 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
 import HomePage from "./pages/HomePage";
 import GettingUnderYourNervePage from "./pages/GettingUnderYourNervePage";
 // 1. IMPORT YOUR NEW PAGE HERE
 import HowToPlayGettingUnderYourNerve from "./pages/HowToPlayGettingUnderYourNerve"; 
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
 
-      <Routes>
+        <Routes>
 
-        {/* MAIN WEBSITE */}
-        <Route path="/" element={<HomePage />} />
+          {/* MAIN WEBSITE */}
+          <Route path="/" element={<HomePage />} />
 
-        {/* GAME PAGE */}
-        <Route
-          path="/games/getting-under-your-nerve"
-          element={<GettingUnderYourNervePage />}
-        />
+          {/* GAME PAGE */}
+          <Route
+            path="/games/getting-under-your-nerve"
+            element={<GettingUnderYourNervePage />}
+          />
 
-        {/* 2. ADD THE NEW ROUTE HERE */}
-        <Route
-          path="/howtoplaygettingunderyournerve"
-          element={<HowToPlayGettingUnderYourNerve />}
-        />
+          {/* 2. ADD THE NEW ROUTE HERE */}
+          <Route
+            path="/howtoplaygettingunderyournerve"
+            element={<HowToPlayGettingUnderYourNerve />}
+          />
 
-      </Routes>
+          {/* LOGIN PAGE */}
+          <Route path="/login" element={<LoginPage />} />
 
-    </BrowserRouter>
+        </Routes>
+
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
