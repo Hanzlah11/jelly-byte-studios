@@ -1,4 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { auth, googleProvider } from "../firebase";
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signInWithPopup,
+  signOut as firebaseSignOut, 
+  onAuthStateChanged,
+  updateProfile
+} from "firebase/auth";
 
 const AuthContext = createContext(null);
 
@@ -6,97 +15,61 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Load user from localStorage on mount
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("jb_user");
-      if (stored) {
-        setUser(JSON.parse(stored));
-      }
-    } catch {
-      localStorage.removeItem("jb_user");
-    }
-    setIsLoading(false);
-  }, []);
-
-  const login = (email, password) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Check if user exists in registered users
-        const users = JSON.parse(localStorage.getItem("jb_users") || "[]");
-        const found = users.find(
-          (u) => u.email === email && u.password === password
-        );
-
-        if (found) {
-          const userData = {
-            id: found.id,
-            name: found.name,
-            email: found.email,
-            avatar: found.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")
-              .toUpperCase(),
-            joinedAt: found.joinedAt,
-          };
-          setUser(userData);
-          localStorage.setItem("jb_user", JSON.stringify(userData));
-          resolve(userData);
-        } else {
-          reject(new Error("Invalid email or password"));
-        }
-      }, 800);
-    });
-  };
-
-  const signup = (name, email, password) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const users = JSON.parse(localStorage.getItem("jb_users") || "[]");
-
-        // Check if email already exists
-        if (users.find((u) => u.email === email)) {
-          reject(new Error("An account with this email already exists"));
-          return;
-        }
-
-        const newUser = {
-          id: crypto.randomUUID(),
-          name,
-          email,
-          password,
-          joinedAt: new Date().toISOString(),
-        };
-
-        users.push(newUser);
-        localStorage.setItem("jb_users", JSON.stringify(users));
-
-        const userData = {
-          id: newUser.id,
-          name: newUser.name,
-          email: newUser.email,
-          avatar: newUser.name
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser({
+          id: firebaseUser.uid,
+          name: firebaseUser.displayName || "User",
+          email: firebaseUser.email,
+          avatar: (firebaseUser.displayName || "User")
             .split(" ")
             .map((n) => n[0])
             .join("")
             .toUpperCase(),
-          joinedAt: newUser.joinedAt,
-        };
-        setUser(userData);
-        localStorage.setItem("jb_user", JSON.stringify(userData));
-        resolve(userData);
-      }, 800);
+          joinedAt: firebaseUser.metadata.creationTime,
+        });
+      } else {
+        setUser(null);
+      }
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const login = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const signup = async (name, email, password) => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, { displayName: name });
+    
+    setUser({
+      id: userCredential.user.uid,
+      name: name,
+      email: email,
+      avatar: name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase(),
+      joinedAt: userCredential.user.metadata.creationTime,
     });
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("jb_user");
+  const loginWithGoogle = async () => {
+    await signInWithPopup(auth, googleProvider);
+    // onAuthStateChanged fires automatically after this and updates `user`
+  };
+
+  const logout = async () => {
+    await firebaseSignOut(auth);
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, signup, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   );
