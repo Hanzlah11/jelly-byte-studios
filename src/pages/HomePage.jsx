@@ -318,7 +318,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                
+
                 <a href="#releases"
                   className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform shadow-xl shadow-pink-500/30"
                 >
@@ -492,10 +492,10 @@ export default function HomePage() {
             </div>
 
             <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-pink-400 transition">Twitter</a>
-              <a href="#" className="hover:text-pink-400 transition">Instagram</a>
-              <a href="#" className="hover:text-pink-400 transition">Discord</a>
-              <a href="#" className="hover:text-pink-400 transition">Steam</a>
+              <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
+              <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
+              <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
+              <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
             </div>
           </div>
         </footer>

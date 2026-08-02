@@ -249,18 +249,18 @@ export default function GettingUnderYourNervePage() {
                 Precision.<br />Chaos.<br />Pain.
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed space-y-4">
-                Think you’ve mastered the 2D platformer? Think again. 
-                <strong className="text-orange-400"> Getting Under Your Nerve</strong> isn’t 
-                just a game—it’s a relentless psychological war engineered specifically to troll 
-                you at every single turn. This world doesn't care about fair play. Just when you think 
-                you’ve finally found a safe rhythm, the map shifts dynamically beneath your feet. 
-                Floors turn into flesh-melting hazards, stable ground vanishes into thin air, and hidden 
+                Think you’ve mastered the 2D platformer? Think again.
+                <strong className="text-orange-400"> Getting Under Your Nerve</strong> isn’t
+                just a game—it’s a relentless psychological war engineered specifically to troll
+                you at every single turn. This world doesn't care about fair play. Just when you think
+                you’ve finally found a safe rhythm, the map shifts dynamically beneath your feet.
+                Floors turn into flesh-melting hazards, stable ground vanishes into thin air, and hidden
                 traps trigger out of absolutely nowhere, completely rewriting the rules of the level mid-air.
                 <br /><br />
-                Every single level is a meticulous puzzle of pain requiring pixel-perfect precision, 
-                split-second reactions, and a massive tolerance for beautiful chaos. This isn't about 
-                casual exploration; it's a brutal gauntlet designed to break you down and force you to 
-                adapt. Take a deep breath, accept the hundreds of inevitable deaths, and prepare for a 
+                Every single level is a meticulous puzzle of pain requiring pixel-perfect precision,
+                split-second reactions, and a massive tolerance for beautiful chaos. This isn't about
+                casual exploration; it's a brutal gauntlet designed to break you down and force you to
+                adapt. Take a deep breath, accept the hundreds of inevitable deaths, and prepare for a
                 high-octane ride that will test your raw platforming skill, your patience, and your sanity.
               </p>
             </FadeUp>
@@ -315,38 +315,38 @@ export default function GettingUnderYourNervePage() {
                 Download the latest build of Getting Under Your Nerve and test
                 your patience against deadly traps and unforgiving gameplay.
               </p>
-                {/* ADD THIS */}
+              {/* ADD THIS */}
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-widest uppercase mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
                 v0.1 Beta
               </span>
               <div className="flex flex-col sm:flex-row gap-4">
-                  {/* Beta Release - active */}
-                  
-                    <a href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
-                    >
-                    <span>⚡</span>
-                    Beta Release
-                    </a>
+                {/* Beta Release - active */}
 
-                    {/* Official Release - disabled */}
-                    <div className="relative group">
-                      <button
-                        disabled
-                        className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-gray-700 to-gray-600 font-bold text-lg text-gray-400 cursor-not-allowed shadow-2xl border border-white/10"
-                      >
-                        <span>🔒</span>
-                        Official Release
-                      </button>
-                      {/* Tooltip */}
-                      <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                        Coming Soon
-                      </div>
-                    </div>
+                <a href="https://drive.google.com/file/d/1RztsZCMH5sqsavONfLIWIDL_8u6PeXIt/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
+                >
+                  <span>⚡</span>
+                  Beta Release
+                </a>
+
+                {/* Official Release - disabled */}
+                <div className="relative group">
+                  <button
+                    disabled
+                    className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-gray-700 to-gray-600 font-bold text-lg text-gray-400 cursor-not-allowed shadow-2xl border border-white/10"
+                  >
+                    <span>🔒</span>
+                    Official Release
+                  </button>
+                  {/* Tooltip */}
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    Coming Soon
                   </div>
+                </div>
+              </div>
 
             </FadeUp>
 
@@ -394,10 +394,10 @@ export default function GettingUnderYourNervePage() {
               </div>
             </div>
             <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-orange-400 transition">Twitter</a>
-              <a href="#" className="hover:text-orange-400 transition">Instagram</a>
-              <a href="#" className="hover:text-orange-400 transition">Discord</a>
-              <a href="#" className="hover:text-orange-400 transition">Steam</a>
+              <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
+              <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
+              <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
+              <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
             </div>
           </div>
         </footer>
