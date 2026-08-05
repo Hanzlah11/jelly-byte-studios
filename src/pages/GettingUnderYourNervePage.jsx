@@ -292,7 +292,7 @@ export default function GettingUnderYourNervePage() {
             <FadeUp delay={0.2} className="rounded-[2rem] overflow-hidden border border-orange-500/20 bg-black shadow-2xl shadow-orange-500/10 aspect-video">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0"
+                src="https://www.youtube.com/embed/0U2nv97bFlo"
                 title="Getting Under Your Nerve - Official Trailer"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

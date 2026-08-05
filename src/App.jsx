@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 import GettingUnderYourNervePage from "./pages/GettingUnderYourNervePage";
-// 1. IMPORT YOUR NEW PAGE HERE
-import HowToPlayGettingUnderYourNerve from "./pages/HowToPlayGettingUnderYourNerve"; 
+import HowToPlayGettingUnderYourNerve from "./pages/HowToPlayGettingUnderYourNerve";
 import LoginPage from "./pages/LoginPage";
 
 export default function App() {
@@ -14,8 +14,17 @@ export default function App() {
 
         <Routes>
 
-          {/* MAIN WEBSITE */}
-          <Route path="/" element={<HomePage />} />
+          {/* HOME PAGE */}
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+
+          {/* ABOUT PAGE */}
+          <Route
+            path="/about"
+            element={<AboutPage />}
+          />
 
           {/* GAME PAGE */}
           <Route
@@ -23,14 +32,17 @@ export default function App() {
             element={<GettingUnderYourNervePage />}
           />
 
-          {/* 2. ADD THE NEW ROUTE HERE */}
+          {/* HOW TO PLAY PAGE */}
           <Route
             path="/howtoplaygettingunderyournerve"
             element={<HowToPlayGettingUnderYourNerve />}
           />
 
           {/* LOGIN PAGE */}
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
 
         </Routes>
 

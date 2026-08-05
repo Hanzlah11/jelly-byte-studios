@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Gamepad2, HeartHandshake, Rocket } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 // --- REUSABLE ANIMATION WRAPPER ---
@@ -74,6 +75,65 @@ function CarouselBackground() {
   );
 }
 
+// --- PREMIUM FEATURE CARD (About section) ---
+function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) {
+  return (
+    <FadeUp delay={delay}>
+      <motion.div
+        whileHover={{ y: -11, scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        className="group relative h-full rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-10 overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06] hover:backdrop-blur-2xl hover:shadow-2xl"
+        style={{ boxShadow: "0 0 0 rgba(0,0,0,0)" }}
+      >
+        {/* Animated glowing gradient border on hover */}
+        <div
+          className={`pointer-events-none absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+          style={{
+            padding: 1,
+            background: `linear-gradient(135deg, ${glow.from}, ${glow.to})`,
+            WebkitMask:
+              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+          }}
+        />
+
+        {/* Soft radial glow behind icon */}
+        <div
+          className={`absolute -top-10 left-10 h-40 w-40 rounded-full blur-3xl opacity-20 group-hover:opacity-50 transition-opacity duration-700 bg-gradient-to-br ${gradient}`}
+        />
+
+        {/* Icon */}
+        <motion.div
+          className={`relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-8 shadow-lg`}
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.18, rotate: 6 }}
+        >
+          <Icon className="w-7 h-7 text-white" strokeWidth={2} />
+        </motion.div>
+
+        {/* Content */}
+        <h4 className="relative z-10 text-2xl font-bold mb-4">{title}</h4>
+        <p className="relative z-10 text-gray-400 leading-relaxed mb-8">
+          {description}
+        </p>
+
+        {/* Learn More footer */}
+        <div
+          className={`relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r ${gradient} bg-clip-text text-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500`}
+        >
+          Learn More
+          <span className="transition-transform duration-500 group-hover:translate-x-1.5">
+            →
+          </span>
+        </div>
+      </motion.div>
+    </FadeUp>
+  );
+}
+
+
 // --- MAIN PAGE ---
 export default function HomePage() {
   const { user, logout } = useAuth();
@@ -109,19 +169,28 @@ export default function HomePage() {
 
   const features = [
     {
+      icon: Gamepad2,
       title: "Pixel-Perfect Experiences",
       description:
         "We create gameplay-first experiences with strong visual identity and satisfying mechanics.",
+      gradient: "from-pink-500 to-purple-500",
+      glow: { from: "#ec4899", to: "#a855f7" },
     },
     {
+      icon: HeartHandshake,
       title: "Indie Passion",
       description:
         "Built by gamers, for gamers. Every project is crafted with creativity and experimentation.",
+      gradient: "from-orange-500 to-amber-400",
+      glow: { from: "#f97316", to: "#fbbf24" },
     },
     {
+      icon: Rocket,
       title: "Expandable Universe",
       description:
         "Our studio website is designed to grow alongside future releases and upcoming projects.",
+      gradient: "from-purple-500 to-indigo-500",
+      glow: { from: "#a855f7", to: "#6366f1" },
     },
   ];
 
@@ -324,9 +393,15 @@ export default function HomePage() {
                 >
                   Explore Releases
                 </a>
-                <button className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-                  Learn More
-                </button>
+                <Link to="/about">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
+                  >
+                    Learn More
+                  </motion.button>
+                </Link>
               </div>
             </FadeUp>
 
@@ -460,17 +535,17 @@ export default function HomePage() {
               </p>
             </FadeUp>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10">
               {features.map((feature, index) => (
-                <FadeUp
-                  key={index}
+                <FeatureCard
+                  key={feature.title}
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  gradient={feature.gradient}
+                  glow={feature.glow}
                   delay={0.1 * (index + 1)}
-                  className="p-8 rounded-[2rem] border border-white/10 bg-white/[0.03]"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-400 mb-6" />
-                  <h4 className="text-2xl font-bold mb-4">{feature.title}</h4>
-                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
-                </FadeUp>
+                />
               ))}
             </div>
           </div>
