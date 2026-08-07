@@ -134,7 +134,7 @@ export function PrivacyPolicy() {
             <p>
               If you have questions about this Privacy Policy, contact us at{" "}
               <a
-                href="mailto:hello@jellybytestudios.com"
+                href="mailto:jellybytestudios@gmail.com"
                 className="text-pink-400 hover:text-pink-300 transition"
               >
                 jellybytestudios@gmail.com
@@ -265,7 +265,7 @@ export function TermsAndConditions() {
             <p>
               If you have questions about these Terms, contact us at{" "}
               <a
-                href="mailto:hello@jellybytestudios.com"
+                href="mailto:jellybytestudios@gmail.com"
                 className="text-pink-400 hover:text-pink-300 transition"
               >
                 jellybytestudios@gmail.com
