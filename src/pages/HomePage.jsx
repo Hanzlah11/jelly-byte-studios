@@ -629,10 +629,30 @@ export function HomePage() {
                 className="md:hidden overflow-hidden border-t border-white/10 bg-[#090311]/95"
               >
                 <nav className="flex flex-col gap-1 px-4 sm:px-6 py-4">
-                  <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">Home</a>
-                  <a href="#releases" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">Releases</a>
-                  <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">About</a>
-                  <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Contact</a>
+                  {[
+                    { id: "home", label: "Home" },
+                    { id: "releases", label: "Releases" },
+                    { id: "about", label: "About" },
+                    { id: "contact", label: "Contact" },
+                  ].map((item, i, arr) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        // Wait for menu close animation to finish before scrolling
+                        setTimeout(() => {
+                          const el = document.getElementById(item.id);
+                          if (el) {
+                            el.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+                        }, 350);
+                      }}
+                      className={`py-3 text-left text-gray-300 hover:text-pink-400 transition${i < arr.length - 1 ? " border-b border-white/5" : ""}`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
                 </nav>
               </motion.div>
             )}
