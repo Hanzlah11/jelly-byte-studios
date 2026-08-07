@@ -162,7 +162,7 @@ export default function HomePage() {
       image: "/images/getting-under-your-nerve-poster.png",
       description:
         "A brutal pixel-art platformer packed with unpredictable traps, fast-paced gameplay, and unforgiving mechanics.",
-      platforms: ["PC", "Steam"],
+      platforms: ["PC", "Itch.io"],
       accent: "from-pink-500 via-fuchsia-500 to-orange-400",
     },
   ];
@@ -503,7 +503,7 @@ export default function HomePage() {
 
                     <div className="flex flex-wrap gap-4">
                       <button className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform">
-                        Wishlist on Steam
+                        Get it Now
                       </button>
                       <Link
                         to="/games/getting-under-your-nerve"
