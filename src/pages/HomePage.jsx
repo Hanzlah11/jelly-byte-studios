@@ -1,10 +1,287 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Gamepad2, HeartHandshake, Rocket } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
-// --- REUSABLE ANIMATION WRAPPER ---
+// ============================================================
+// PRIVACY POLICY
+// ============================================================
+export function PrivacyPolicy() {
+  return (
+    <div className="min-h-screen bg-[#090311] text-white">
+      {/* Simple top bar */}
+      <div className="border-b border-white/10 px-6 py-6">
+        <div className="max-w-3xl mx-auto flex items-center justify-between">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-pink-400 transition"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+          </Link>
+          <img src="/images/logo.png" alt="JellyByte Studios Logo" className="w-10 h-10 object-contain" />
+        </div>
+      </div>
+
+      <main className="max-w-3xl mx-auto px-6 py-14">
+        <p className="text-sm font-medium text-pink-400 mb-3">Legal</p>
+        <h1 className="text-3xl sm:text-4xl font-black tracking-wide font-bebas mb-2">
+          Privacy Policy
+        </h1>
+        <p className="text-sm text-gray-500 mb-12">Last updated: August 7, 2026</p>
+
+        <div className="space-y-10 text-gray-300 leading-relaxed">
+          <section>
+            <p>
+              JellyByte Studios ("we," "us," or "our") respects your privacy. This Privacy
+              Policy explains what information we collect through jellybytestudios.com (the
+              "Site"), how we use it, and the choices you have. By using the Site, you agree
+              to the practices described here.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">1. Information We Collect</h2>
+            <p className="mb-3">We may collect the following types of information:</p>
+            <ul className="list-disc list-inside space-y-2 marker:text-pink-400">
+              <li>
+                <span className="text-white font-medium">Information you provide directly</span> —
+                such as your name and email address when you contact us, sign up for updates,
+                or fill out a form on the Site.
+              </li>
+              <li>
+                <span className="text-white font-medium">Automatically collected information</span> —
+                such as your IP address, browser type, device information, and pages visited,
+                collected through cookies and similar technologies or analytics tools.
+              </li>
+              <li>
+                <span className="text-white font-medium">Third-party platform data</span> — if you
+                interact with us through social media (Instagram, TikTok, Facebook, YouTube),
+                those platforms may share limited interaction data with us subject to their own
+                privacy policies.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">2. How We Use Your Information</h2>
+            <ul className="list-disc list-inside space-y-2 marker:text-pink-400">
+              <li>To respond to inquiries and provide customer support</li>
+              <li>To send updates about our games and studio, if you opt in</li>
+              <li>To understand how visitors use the Site and improve it</li>
+              <li>To protect the Site against fraud, abuse, and security incidents</li>
+              <li>To comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">3. Cookies &amp; Analytics</h2>
+            <p>
+              We may use cookies and similar tools to keep the Site functioning properly and
+              to understand usage patterns. You can disable cookies in your browser settings,
+              though some parts of the Site may not work as intended if you do.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">4. Sharing of Information</h2>
+            <p>
+              We do not sell your personal information. We may share information with trusted
+              service providers who help us operate the Site (such as hosting or analytics
+              providers), or when required by law.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">5. Data Retention</h2>
+            <p>
+              We retain personal information only as long as necessary for the purposes
+              described in this policy, or as required by law.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">6. Your Rights</h2>
+            <p>
+              Depending on where you live, you may have rights to access, correct, or delete
+              your personal information, or to object to certain processing. To exercise any
+              of these rights, contact us using the details below.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">7. Children's Privacy</h2>
+            <p>
+              The Site is not directed at children under 13, and we do not knowingly collect
+              personal information from children under 13. If you believe a child has provided
+              us with personal information, please contact us so we can remove it.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">8. Changes to This Policy</h2>
+            <p>
+              We may update this Privacy Policy from time to time. Changes will be posted on
+              this page with an updated "Last updated" date.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">9. Contact Us</h2>
+            <p>
+              If you have questions about this Privacy Policy, contact us at{" "}
+              <a
+                href="mailto:hello@jellybytestudios.com"
+                className="text-pink-400 hover:text-pink-300 transition"
+              >
+                hello@jellybytestudios.com
+              </a>
+              .
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+// ============================================================
+// TERMS & CONDITIONS
+// ============================================================
+export function TermsAndConditions() {
+  return (
+    <div className="min-h-screen bg-[#090311] text-white">
+      {/* Simple top bar */}
+      <div className="border-b border-white/10 px-6 py-6">
+        <div className="max-w-3xl mx-auto flex items-center justify-between">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-pink-400 transition"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+          </Link>
+          <img src="/images/logo.png" alt="JellyByte Studios Logo" className="w-10 h-10 object-contain" />
+        </div>
+      </div>
+
+      <main className="max-w-3xl mx-auto px-6 py-14">
+        <p className="text-sm font-medium text-pink-400 mb-3">Legal</p>
+        <h1 className="text-3xl sm:text-4xl font-black tracking-wide font-bebas mb-2">
+          Terms &amp; Conditions
+        </h1>
+        <p className="text-sm text-gray-500 mb-12">Last updated: August 7, 2026</p>
+
+        <div className="space-y-10 text-gray-300 leading-relaxed">
+          <section>
+            <p>
+              These Terms &amp; Conditions ("Terms") govern your use of jellybytestudios.com
+              (the "Site"), operated by JellyByte Studios ("we," "us," or "our"). By accessing
+              or using the Site, you agree to be bound by these Terms. If you do not agree,
+              please do not use the Site.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">1. Use of the Site</h2>
+            <p>
+              You may use the Site for lawful purposes only. You agree not to misuse the Site,
+              interfere with its normal operation, or attempt to gain unauthorized access to
+              any part of it or its underlying systems.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">2. Intellectual Property</h2>
+            <p>
+              All content on the Site — including but not limited to game titles, artwork,
+              logos, trademarks, text, and design — is the property of JellyByte Studios or
+              its licensors and is protected by copyright and other intellectual property
+              laws. You may not reproduce, distribute, or create derivative works from any
+              content on the Site without our prior written permission.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">3. Third-Party Links</h2>
+            <p>
+              The Site may contain links to third-party platforms, including our social media
+              channels (Instagram, TikTok, Facebook, YouTube). We are not responsible for the
+              content, policies, or practices of any third-party sites or services.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">4. User Accounts</h2>
+            <p>
+              If the Site allows you to create an account, you are responsible for maintaining
+              the confidentiality of your login credentials and for all activity under your
+              account. Notify us immediately of any unauthorized use.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">5. Disclaimer of Warranties</h2>
+            <p>
+              The Site is provided "as is" and "as available" without warranties of any kind,
+              express or implied. We do not guarantee that the Site will be uninterrupted,
+              secure, or error-free.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">6. Limitation of Liability</h2>
+            <p>
+              To the fullest extent permitted by law, JellyByte Studios shall not be liable for
+              any indirect, incidental, or consequential damages arising out of your use of, or
+              inability to use, the Site.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">7. Changes to the Site or Terms</h2>
+            <p>
+              We may modify or discontinue the Site, in whole or in part, at any time. We may
+              also update these Terms from time to time; continued use of the Site after
+              changes are posted constitutes acceptance of the revised Terms.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">8. Governing Law</h2>
+            <p>
+              These Terms are governed by the laws of [your jurisdiction], without regard to
+              its conflict of law principles.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">9. Contact Us</h2>
+            <p>
+              If you have questions about these Terms, contact us at{" "}
+              <a
+                href="mailto:hello@jellybytestudios.com"
+                className="text-pink-400 hover:text-pink-300 transition"
+              >
+                hello@jellybytestudios.com
+              </a>
+              .
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+// ============================================================
+// REUSABLE ANIMATION WRAPPER
+// ============================================================
 const FadeUp = ({ children, delay = 0, className = "" }) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
@@ -17,7 +294,9 @@ const FadeUp = ({ children, delay = 0, className = "" }) => (
   </motion.div>
 );
 
-// --- CAROUSEL BACKGROUND ---
+// ============================================================
+// CAROUSEL BACKGROUND
+// ============================================================
 function CarouselBackground() {
   const images = [
     "/images/screenshot-1.jpeg",
@@ -75,7 +354,9 @@ function CarouselBackground() {
   );
 }
 
-// --- PREMIUM FEATURE CARD (About section) ---
+// ============================================================
+// PREMIUM FEATURE CARD (About section)
+// ============================================================
 function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) {
   return (
     <FadeUp delay={delay}>
@@ -133,9 +414,10 @@ function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) 
   );
 }
 
-
-// --- MAIN PAGE ---
-export default function HomePage() {
+// ============================================================
+// HOME PAGE
+// ============================================================
+export function HomePage() {
   const { user, logout } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -554,29 +836,50 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer id="contact" className="border-t border-white/10 py-10 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img
-                src="/images/logo.png"
-                className="w-20 h-20 object-contain"
-                alt="logo"
-              />
-              <div>
-                <p className="font-bold">JellyByte Studios</p>
-                <p className="text-sm text-gray-500">© 2026 All Rights Reserved</p>
-              </div>
-            </div>
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
+    <div className="flex items-center gap-4">
+      <img
+        src="/images/logo.png"
+        className="w-20 h-20 object-contain"
+        alt="logo"
+      />
+      <div>
+        <p className="font-bold">JellyByte Studios</p>
+        <p className="text-sm text-gray-500">© 2026 All Rights Reserved</p>
+      </div>
+    </div>
 
-            <div className="flex gap-6 text-sm text-gray-400">
-              <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
-              <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
-              <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
-              <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
-            </div>
-          </div>
-        </footer>
+    <div className="flex flex-col items-center md:items-end gap-3">
+      <div className="flex gap-6 text-sm text-gray-400">
+        <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
+        <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
+        <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
+      </div>
+
+      <div className="flex gap-4 text-xs text-gray-500">
+        <Link to="/privacy-policy" className="hover:text-pink-400 transition">Privacy Policy</Link>
+        <span className="text-gray-700">•</span>
+        <Link to="/terms-and-conditions" className="hover:text-pink-400 transition">Terms & Conditions</Link>
+      </div>
+    </div>
+  </div>
+</footer>
 
       </div>
     </>
+  );
+}
+
+// ============================================================
+// APP — ROUTES
+// ============================================================
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+    </Routes>
   );
 }
