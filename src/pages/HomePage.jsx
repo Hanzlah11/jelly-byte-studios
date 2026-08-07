@@ -220,24 +220,24 @@ export default function HomePage() {
 
         {/* Navbar */}
         <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-[#090311]/80">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-4 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
               <img
                 src="/images/logo.png"
                 alt="JellyByte Studios Logo"
-                className="w-20 h-20 object-contain"
+                className="w-9 h-9 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain shrink-0"
               />
-              <div>
-                <h1 className="font-black text-2xl tracking-wide font-bebas">
+              <div className="min-w-0">
+                <h1 className="font-black text-sm sm:text-xl md:text-2xl tracking-wide font-bebas whitespace-nowrap leading-tight">
                   JellyByte Studios
                 </h1>
-                <p className="text-sm text-gray-400">
+                <p className="hidden sm:block text-sm text-gray-400 truncate">
                   Indie Games • Pixel Worlds • Chaos
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 sm:gap-6 shrink-0">
               <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
                 <a href="#home" className="hover:text-pink-400 transition">Home</a>
                 <a href="#releases" className="hover:text-pink-400 transition">Releases</a>
@@ -251,16 +251,16 @@ export default function HomePage() {
                   <button
                     id="user-menu-button"
                     onClick={() => setShowDropdown(!showDropdown)}
-                    className="flex items-center gap-3 pl-3 pr-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-pink-500/30 hover:bg-white/10 transition-all group"
+                    className="flex items-center gap-2 sm:gap-3 pl-1.5 pr-2 sm:pl-3 sm:pr-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 hover:border-pink-500/30 hover:bg-white/10 transition-all group"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-pink-500/20">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-pink-500/20 shrink-0">
                       {user.avatar}
                     </div>
-                    <span className="hidden sm:block text-sm font-medium text-gray-300 group-hover:text-white transition-colors max-w-[120px] truncate">
+                    <span className="hidden sm:block text-sm font-medium text-gray-300 group-hover:text-white transition-colors max-w-[90px] md:max-w-[120px] truncate">
                       {user.name}
                     </span>
                     <svg
-                      className={`w-4 h-4 text-gray-400 transition-transform ${showDropdown ? "rotate-180" : ""}`}
+                      className={`hidden sm:block w-4 h-4 text-gray-400 transition-transform shrink-0 ${showDropdown ? "rotate-180" : ""}`}
                       fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -275,12 +275,12 @@ export default function HomePage() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 mt-3 w-64 rounded-2xl border border-white/10 bg-[#12091e]/95 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden"
+                        className="absolute right-0 mt-3 w-[calc(100vw-1.5rem)] max-w-64 rounded-2xl border border-white/10 bg-[#12091e]/95 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden"
                       >
                         {/* User info */}
-                        <div className="px-5 py-4 border-b border-white/10">
+                        <div className="px-4 sm:px-5 py-4 border-b border-white/10">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20 shrink-0">
                               {user.avatar}
                             </div>
                             <div className="min-w-0">
@@ -298,9 +298,9 @@ export default function HomePage() {
                               logout();
                               setShowDropdown(false);
                             }}
-                            className="w-full flex items-center gap-3 px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-red-400 transition-colors"
+                            className="w-full flex items-center gap-3 px-4 sm:px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-red-400 transition-colors"
                           >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                             </svg>
                             Sign Out
@@ -314,9 +314,9 @@ export default function HomePage() {
                 <Link
                   to="/login"
                   id="navbar-login-button"
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-orange-400 font-semibold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40"
+                  className="flex items-center gap-1 sm:gap-2 px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-orange-400 font-semibold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 whitespace-nowrap"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                   </svg>
                   Login
@@ -326,12 +326,13 @@ export default function HomePage() {
               {/* Mobile menu toggle */}
               <button
                 id="mobile-menu-toggle"
-                className="md:hidden flex flex-col gap-1.5 p-2"
+                className="md:hidden flex flex-col gap-1.5 p-1.5 sm:p-2 shrink-0"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
               >
-                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
-                <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
+                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
               </button>
             </div>
           </div>
@@ -343,12 +344,12 @@ export default function HomePage() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="md:hidden overflow-hidden border-t border-white/10"
+                className="md:hidden overflow-hidden border-t border-white/10 bg-[#090311]/95"
               >
-                <nav className="flex flex-col gap-1 px-6 py-4">
-                  <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Home</a>
-                  <a href="#releases" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Releases</a>
-                  <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">About</a>
+                <nav className="flex flex-col gap-1 px-4 sm:px-6 py-4">
+                  <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">Home</a>
+                  <a href="#releases" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">Releases</a>
+                  <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition border-b border-white/5">About</a>
                   <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="py-3 text-gray-300 hover:text-pink-400 transition">Contact</a>
                 </nav>
               </motion.div>
