@@ -137,7 +137,7 @@ export function PrivacyPolicy() {
                 href="mailto:hello@jellybytestudios.com"
                 className="text-pink-400 hover:text-pink-300 transition"
               >
-                hello@jellybytestudios.com
+                jellybytestudios@gmail.com
               </a>
               .
             </p>
@@ -268,7 +268,7 @@ export function TermsAndConditions() {
                 href="mailto:hello@jellybytestudios.com"
                 className="text-pink-400 hover:text-pink-300 transition"
               >
-                hello@jellybytestudios.com
+                jellybytestudios@gmail.com
               </a>
               .
             </p>
