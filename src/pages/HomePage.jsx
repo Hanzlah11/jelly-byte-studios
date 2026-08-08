@@ -805,9 +805,15 @@ export function HomePage() {
                     </div>
 
                     <div className="flex flex-wrap gap-4">
-                      <button className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform">
-                        Get it Now
-                      </button>
+                        <a 
+                          href="https://jellybyte-studios.itch.io/getting-under-your-nerve" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <button className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform">
+                            Get on Itch.io
+                          </button>
+                        </a>
                       <Link
                         to="/games/getting-under-your-nerve"
                         className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"

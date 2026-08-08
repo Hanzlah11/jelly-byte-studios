@@ -47,7 +47,7 @@ function FeedbackForm() {
       <div className="text-center mb-8">
         <h3 className="font-bebas text-5xl mb-2">Drop some feedback</h3>
         <p className="text-gray-400 text-sm">
-          100% anonymous. We don't ask for your email.
+          All ideas are welcomed, including critics
         </p>
       </div>
 
@@ -332,19 +332,17 @@ export default function GettingUnderYourNervePage() {
                   Beta Release
                 </a>
 
-                {/* Official Release - disabled */}
+                {/* Official Release - active */}
                 <div className="relative group">
-                  <button
-                    disabled
-                    className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-gray-700 to-gray-600 font-bold text-lg text-gray-400 cursor-not-allowed shadow-2xl border border-white/10"
+                  <a
+                    href="https://drive.google.com/file/d/1Zo0ClPm039YAvTYvPl8fTB7iwoq1CpQo/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg text-white hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
                   >
-                    <span>🔒</span>
+                    <span>⚡</span>
                     Official Release
-                  </button>
-                  {/* Tooltip */}
-                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    Coming Soon
-                  </div>
+                  </a>
                 </div>
               </div>
 
