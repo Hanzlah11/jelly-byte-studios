@@ -37,6 +37,7 @@ const teamMembers = [
     name: "Hanzlah Imran",
     title: "Co-Founder",
     role: "Head of Coding & Art",
+    image: "/images/team/hanzlah.jpeg",
     gradient: "from-pink-500 to-orange-400",
     description:
       "Leads the technical and artistic direction of JellyByte Studios, overseeing gameplay systems, architecture, programming standards, pixel art, and overall game quality.",
@@ -49,9 +50,10 @@ const teamMembers = [
     ],
   },
   {
-    name: "Mohib",
+    name: "Mohib Sardar",
     title: "Co-Founder",
     role: "Head of Task Assignment & Budget",
+    image: "/images/team/mohib.jpeg",
     gradient: "from-purple-500 to-pink-500",
     description:
       "Coordinates every department, manages schedules and production, oversees budgeting, and represents JellyByte Studios during public engagements.",
@@ -64,9 +66,10 @@ const teamMembers = [
     ],
   },
   {
-    name: "Haider",
+    name: "Haider Husnain",
     title: "Co-Founder",
     role: "Head of Marketing",
+    image: "/images/team/haider.png",
     gradient: "from-orange-500 to-pink-500",
     description:
       "Builds the studio's community, manages social media, develops marketing campaigns, and connects JellyByte Studios with players worldwide.",
@@ -82,6 +85,7 @@ const teamMembers = [
     name: "Abdur Rafay",
     title: "Member",
     role: "Head of Web Development & Database",
+    image: "/images/team/rafay.png",
     gradient: "from-pink-500 to-purple-500",
     description:
       "Develops the studio website and backend systems while designing secure database architecture that supports future products.",
@@ -140,15 +144,25 @@ function TeamMemberCard({ member, reverse = false }) {
           />
 
           <div className="relative z-10 h-full flex flex-col items-center justify-center">
-            <div className="w-32 h-32 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mb-8">
-              <User size={58} strokeWidth={1.5} />
-            </div>
+            {member.image ? (
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover object-center rounded-[2.5rem]"
+              />
+            ) : (
+              <>
+                <div className="w-32 h-32 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mb-8">
+                  <User size={58} strokeWidth={1.5} />
+                </div>
 
-            <h3 className="font-bebas text-4xl tracking-widest">PHOTO</h3>
+                <h3 className="font-bebas text-4xl tracking-widest">PHOTO</h3>
 
-            <p className="mt-3 uppercase tracking-[0.35em] text-gray-400 text-sm">
-              Coming Soon
-            </p>
+                <p className="mt-3 uppercase tracking-[0.35em] text-gray-400 text-sm">
+                  Coming Soon
+                </p>
+              </>
+            )}
           </div>
         </motion.div>
       </motion.div>
@@ -248,10 +262,9 @@ export default function AboutPage() {
         }
       `}</style>
 
-      {/* STICKY NAVBAR AT THE TOP LEVEL */}
+      {/* STICKY NAVBAR */}
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#090311]/90 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
-          {/* Logo & Studio Info */}
           <Link to="/" className="flex items-center gap-4 z-10">
             <img
               src="/images/logo.png"
@@ -266,7 +279,6 @@ export default function AboutPage() {
             </div>
           </Link>
 
-          {/* Centered, Prominent Nav Links */}
           <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 font-bold text-lg tracking-wider text-gray-200">
             <Link to="/" className="hover:text-pink-400 transition-colors">
               Home
