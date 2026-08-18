@@ -366,7 +366,6 @@ function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) 
         className="group relative h-full rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-10 overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06] hover:backdrop-blur-2xl hover:shadow-2xl"
         style={{ boxShadow: "0 0 0 rgba(0,0,0,0)" }}
       >
-        {/* Animated glowing gradient border on hover */}
         <div
           className={`pointer-events-none absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
           style={{
@@ -379,12 +378,10 @@ function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) 
           }}
         />
 
-        {/* Soft radial glow behind icon */}
         <div
           className={`absolute -top-10 left-10 h-40 w-40 rounded-full blur-3xl opacity-20 group-hover:opacity-50 transition-opacity duration-700 bg-gradient-to-br ${gradient}`}
         />
 
-        {/* Icon */}
         <motion.div
           className={`relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-8 shadow-lg`}
           animate={{ y: [0, -6, 0] }}
@@ -394,13 +391,11 @@ function FeatureCard({ icon: Icon, title, description, gradient, glow, delay }) 
           <Icon className="w-7 h-7 text-white" strokeWidth={2} />
         </motion.div>
 
-        {/* Content */}
         <h4 className="relative z-10 text-2xl font-bold mb-4">{title}</h4>
         <p className="relative z-10 text-gray-400 leading-relaxed mb-8">
           {description}
         </p>
 
-        {/* Learn More footer */}
         <div
           className={`relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r ${gradient} bg-clip-text text-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500`}
         >
@@ -423,7 +418,6 @@ export function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClick = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -485,6 +479,7 @@ export function HomePage() {
 
         body {
           font-family: 'DM Sans', sans-serif;
+          background: #090311;
         }
 
         .font-bebas {
@@ -492,172 +487,176 @@ export function HomePage() {
         }
       `}</style>
 
-      <div className="min-h-screen bg-[#090311] text-white overflow-x-hidden relative">
+      {/* STICKY NAVBAR */}
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#090311]/90 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+          {/* Logo & Studio Info */}
+          <a href="#home" className="flex items-center gap-4 z-10">
+            <img
+              src="/images/logo.png"
+              alt="JellyByte Studios Logo"
+              className="w-14 h-14 object-contain shrink-0"
+            />
+            <div className="min-w-0">
+              <h1 className="font-black text-2xl md:text-3xl tracking-wide font-bebas leading-none text-white whitespace-nowrap">
+                JellyByte Studios
+              </h1>
+              <p className="hidden sm:block text-xs text-gray-400 truncate">
+                Indie Games • Pixel Worlds • Chaos
+              </p>
+            </div>
+          </a>
 
+          {/* Centered & Prominent Navigation Links */}
+          <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 font-bold text-lg tracking-wider text-gray-200">
+            <a href="#home" className="hover:text-pink-400 transition-colors">
+              Home
+            </a>
+            <a href="#releases" className="hover:text-pink-400 transition-colors">
+              Releases
+            </a>
+            <a href="#about" className="hover:text-pink-400 transition-colors">
+              About
+            </a>
+            <a href="#contact" className="hover:text-pink-400 transition-colors">
+              Contact
+            </a>
+          </nav>
+
+          {/* Auth Button / User Menu */}
+          <div className="flex items-center gap-4 shrink-0 z-10">
+            {user ? (
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  id="user-menu-button"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="flex items-center gap-2 sm:gap-3 pl-1.5 pr-2 sm:pl-3 sm:pr-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 hover:border-pink-500/30 hover:bg-white/10 transition-all group"
+                >
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-pink-500/20 shrink-0">
+                    {user.avatar}
+                  </div>
+                  <span className="hidden sm:block text-sm font-medium text-gray-300 group-hover:text-white transition-colors max-w-[90px] md:max-w-[120px] truncate">
+                    {user.name}
+                  </span>
+                  <svg
+                    className={`hidden sm:block w-4 h-4 text-gray-400 transition-transform shrink-0 ${showDropdown ? "rotate-180" : ""}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <AnimatePresence>
+                  {showDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-3 w-[calc(100vw-1.5rem)] max-w-64 rounded-2xl border border-white/10 bg-[#12091e]/95 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden"
+                    >
+                      <div className="px-4 sm:px-5 py-4 border-b border-white/10">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20 shrink-0">
+                            {user.avatar}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-semibold text-white truncate">{user.name}</p>
+                            <p className="text-xs text-gray-400 truncate">{user.email}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="py-2">
+                        <button
+                          id="logout-button"
+                          onClick={() => {
+                            logout();
+                            setShowDropdown(false);
+                          }}
+                          className="w-full flex items-center gap-3 px-4 sm:px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-red-400 transition-colors"
+                        >
+                          <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                          </svg>
+                          Sign Out
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                id="navbar-login-button"
+                className="flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-orange-400 font-semibold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 whitespace-nowrap"
+              >
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+                Login
+              </Link>
+            )}
+
+            <button
+              id="mobile-menu-toggle"
+              className="md:hidden flex flex-col gap-1.5 p-1.5 shrink-0"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden overflow-hidden border-t border-white/10 bg-[#090311]/95"
+            >
+              <nav className="flex flex-col gap-1 px-4 sm:px-6 py-4">
+                {[
+                  { id: "home", label: "Home" },
+                  { id: "releases", label: "Releases" },
+                  { id: "about", label: "About" },
+                  { id: "contact", label: "Contact" },
+                ].map((item, i, arr) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setTimeout(() => {
+                        const el = document.getElementById(item.id);
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }, 350);
+                    }}
+                    className={`py-3 text-left font-semibold text-gray-300 hover:text-pink-400 transition${i < arr.length - 1 ? " border-b border-white/5" : ""}`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      <div className="min-h-screen bg-[#090311] text-white relative">
         {/* Background Glow */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-pink-500/20 blur-3xl" />
           <div className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full bg-orange-500/10 blur-3xl" />
         </div>
-
-        {/* Navbar */}
-        <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-[#090311]/80">
-          <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-4 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-              <img
-                src="/images/logo.png"
-                alt="JellyByte Studios Logo"
-                className="w-9 h-9 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain shrink-0"
-              />
-              <div className="min-w-0">
-                <h1 className="font-black text-sm sm:text-xl md:text-2xl tracking-wide font-bebas whitespace-nowrap leading-tight">
-                  JellyByte Studios
-                </h1>
-                <p className="hidden sm:block text-sm text-gray-400 truncate">
-                  Indie Games • Pixel Worlds • Chaos
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 sm:gap-6 shrink-0">
-              <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#home" className="hover:text-pink-400 transition">Home</a>
-                <a href="#releases" className="hover:text-pink-400 transition">Releases</a>
-                <a href="#about" className="hover:text-pink-400 transition">About</a>
-                <a href="#contact" className="hover:text-pink-400 transition">Contact</a>
-              </nav>
-
-              {/* Auth Button / User Menu */}
-              {user ? (
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    id="user-menu-button"
-                    onClick={() => setShowDropdown(!showDropdown)}
-                    className="flex items-center gap-2 sm:gap-3 pl-1.5 pr-2 sm:pl-3 sm:pr-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 hover:border-pink-500/30 hover:bg-white/10 transition-all group"
-                  >
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-pink-500/20 shrink-0">
-                      {user.avatar}
-                    </div>
-                    <span className="hidden sm:block text-sm font-medium text-gray-300 group-hover:text-white transition-colors max-w-[90px] md:max-w-[120px] truncate">
-                      {user.name}
-                    </span>
-                    <svg
-                      className={`hidden sm:block w-4 h-4 text-gray-400 transition-transform shrink-0 ${showDropdown ? "rotate-180" : ""}`}
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  {/* Dropdown */}
-                  <AnimatePresence>
-                    {showDropdown && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute right-0 mt-3 w-[calc(100vw-1.5rem)] max-w-64 rounded-2xl border border-white/10 bg-[#12091e]/95 backdrop-blur-xl shadow-2xl shadow-black/50 overflow-hidden"
-                      >
-                        {/* User info */}
-                        <div className="px-4 sm:px-5 py-4 border-b border-white/10">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20 shrink-0">
-                              {user.avatar}
-                            </div>
-                            <div className="min-w-0">
-                              <p className="font-semibold text-white truncate">{user.name}</p>
-                              <p className="text-xs text-gray-400 truncate">{user.email}</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Menu items */}
-                        <div className="py-2">
-                          <button
-                            id="logout-button"
-                            onClick={() => {
-                              logout();
-                              setShowDropdown(false);
-                            }}
-                            className="w-full flex items-center gap-3 px-4 sm:px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-red-400 transition-colors"
-                          >
-                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                            Sign Out
-                          </button>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  to="/login"
-                  id="navbar-login-button"
-                  className="flex items-center gap-1 sm:gap-2 px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-orange-400 font-semibold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 whitespace-nowrap"
-                >
-                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                  </svg>
-                  Login
-                </Link>
-              )}
-
-              {/* Mobile menu toggle */}
-              <button
-                id="mobile-menu-toggle"
-                className="md:hidden flex flex-col gap-1.5 p-1.5 sm:p-2 shrink-0"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle menu"
-              >
-                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
-                <span className={`block w-5 h-0.5 bg-white transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile menu */}
-          <AnimatePresence>
-            {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="md:hidden overflow-hidden border-t border-white/10 bg-[#090311]/95"
-              >
-                <nav className="flex flex-col gap-1 px-4 sm:px-6 py-4">
-                  {[
-                    { id: "home", label: "Home" },
-                    { id: "releases", label: "Releases" },
-                    { id: "about", label: "About" },
-                    { id: "contact", label: "Contact" },
-                  ].map((item, i, arr) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        // Wait for menu close animation to finish before scrolling
-                        setTimeout(() => {
-                          const el = document.getElementById(item.id);
-                          if (el) {
-                            el.scrollIntoView({ behavior: "smooth", block: "start" });
-                          }
-                        }, 350);
-                      }}
-                      className={`py-3 text-left text-gray-300 hover:text-pink-400 transition${i < arr.length - 1 ? " border-b border-white/5" : ""}`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </nav>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </header>
 
         {/* Hero Section */}
         <section
@@ -667,8 +666,6 @@ export function HomePage() {
           <CarouselBackground />
 
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-
-            {/* LEFT */}
             <FadeUp className="space-y-8 relative z-10">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pink-500/20 bg-pink-500/10 text-pink-300 text-sm">
                 <span className="w-2 h-2 rounded-full bg-pink-400 animate-pulse" />
@@ -690,8 +687,8 @@ export function HomePage() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-
-                <a href="#releases"
+                <a
+                  href="#releases"
                   className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform shadow-xl shadow-pink-500/30"
                 >
                   Explore Releases
@@ -708,7 +705,6 @@ export function HomePage() {
               </div>
             </FadeUp>
 
-            {/* RIGHT — STUDIO CARD */}
             <FadeUp delay={0.2} className="relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md">
                 <div className="absolute -top-10 -right-10 h-56 w-56 rounded-full bg-pink-500/20 blur-3xl" />
@@ -741,7 +737,6 @@ export function HomePage() {
                 </div>
               </div>
             </FadeUp>
-
           </div>
         </section>
 
@@ -805,15 +800,15 @@ export function HomePage() {
                     </div>
 
                     <div className="flex flex-wrap gap-4">
-                        <a 
-                          href="https://jellybyte-studios.itch.io/getting-under-your-nerve" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <button className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform">
-                            Get on Itch.io
-                          </button>
-                        </a>
+                      <a
+                        href="https://jellybyte-studios.itch.io/getting-under-your-nerve"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button className="px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 font-bold hover:scale-105 transition-transform">
+                          Get on Itch.io
+                        </button>
+                      </a>
                       <Link
                         to="/games/getting-under-your-nerve"
                         className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
@@ -862,36 +857,35 @@ export function HomePage() {
 
         {/* Footer */}
         <footer id="contact" className="border-t border-white/10 py-10 px-6">
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
-    <div className="flex items-center gap-4">
-      <img
-        src="/images/logo.png"
-        className="w-20 h-20 object-contain"
-        alt="logo"
-      />
-      <div>
-        <p className="font-bold">JellyByte Studios</p>
-        <p className="text-sm text-gray-500">© 2026 All Rights Reserved</p>
-      </div>
-    </div>
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img
+                src="/images/logo.png"
+                className="w-20 h-20 object-contain"
+                alt="logo"
+              />
+              <div>
+                <p className="font-bold">JellyByte Studios</p>
+                <p className="text-sm text-gray-500">© 2026 All Rights Reserved</p>
+              </div>
+            </div>
 
-    <div className="flex flex-col items-center md:items-end gap-3">
-      <div className="flex gap-6 text-sm text-gray-400">
-        <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
-        <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
-        <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
-        <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
-      </div>
+            <div className="flex flex-col items-center md:items-end gap-3">
+              <div className="flex gap-6 text-sm text-gray-400">
+                <a href="https://www.instagram.com/jellybytestudios/" className="hover:text-pink-400 transition">Instagram</a>
+                <a href="https://www.tiktok.com/@jellybytestudios" className="hover:text-pink-400 transition">TikTok</a>
+                <a href="https://www.facebook.com/profile.php?id=61592068596434" className="hover:text-pink-400 transition">Facebook</a>
+                <a href="https://www.youtube.com/@JellyByteStudios" className="hover:text-pink-400 transition">YouTube</a>
+              </div>
 
-      <div className="flex gap-4 text-xs text-gray-500">
-        <Link to="/privacy-policy" className="hover:text-pink-400 transition">Privacy Policy</Link>
-        <span className="text-gray-700">•</span>
-        <Link to="/terms-and-conditions" className="hover:text-pink-400 transition">Terms & Conditions</Link>
-      </div>
-    </div>
-  </div>
-</footer>
-
+              <div className="flex gap-4 text-xs text-gray-500">
+                <Link to="/privacy-policy" className="hover:text-pink-400 transition">Privacy Policy</Link>
+                <span className="text-gray-700">•</span>
+                <Link to="/terms-and-conditions" className="hover:text-pink-400 transition">Terms & Conditions</Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

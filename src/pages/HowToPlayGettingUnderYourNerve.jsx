@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // --- REUSABLE ANIMATION WRAPPER ---
@@ -16,8 +17,6 @@ const FadeUp = ({ children, delay = 0, className = "" }) => (
 
 // --- REUSABLE TUTORIAL ROW ---
 const TutorialRow = ({ ruleNum, title, description, videoId, isReversed, accentColor }) => {
-  // YouTube parameters: autoplay, mute, loop, hide controls. 
-  // Note: To loop a single video, YouTube requires the 'playlist' parameter to match the videoId.
   const youtubeUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playlist=${videoId}&rel=0`;
 
   return (
@@ -25,9 +24,9 @@ const TutorialRow = ({ ruleNum, title, description, videoId, isReversed, accentC
       <FadeUp className={`space-y-6 ${isReversed ? "order-2 md:order-2" : "order-2 md:order-1"}`}>
         <div className={`font-bebas text-3xl ${accentColor}`}>Rule #{ruleNum}</div>
         <h4 className="text-3xl md:text-4xl font-bold text-white">{title}</h4>
-        <p className="text-gray-300 text-lg leading-relaxed">
+        <div className="text-gray-300 text-lg leading-relaxed">
           {description}
-        </p>
+        </div>
       </FadeUp>
       
       <FadeUp className={`relative group ${isReversed ? "order-1 md:order-1" : "order-1 md:order-2"}`}>
@@ -40,7 +39,6 @@ const TutorialRow = ({ ruleNum, title, description, videoId, isReversed, accentC
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             frameBorder="0"
           ></iframe>
-          {/* Overlay to prevent users from clicking/pausing the video */}
           <div className="absolute inset-0 z-20"></div>
         </div>
       </FadeUp>
@@ -60,26 +58,61 @@ export default function HowToPlayGettingUnderYourNerve() {
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&display=swap');
         body { font-family: 'DM Sans', sans-serif; background: #0d0503; }
         .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        html { scroll-behavior: smooth; }
       `}</style>
 
-      <div className="min-h-screen bg-[#0d0503] text-white overflow-x-hidden relative">
+      {/* STICKY NAVBAR */}
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0d0503]/90 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+          {/* Logo & Studio Info */}
+          <Link to="/" className="flex items-center gap-4 z-10">
+            <img
+              src="/images/logo.png"
+              alt="JellyByte Studios"
+              className="w-14 h-14 object-contain"
+            />
+            <div>
+              <h1 className="font-bebas text-3xl tracking-wide text-white leading-none">
+                JellyByte Studios
+              </h1>
+              <p className="text-xs text-gray-400">
+                Getting Under Your Nerve
+              </p>
+            </div>
+          </Link>
+
+          {/* Centered, Prominent Nav Links */}
+          <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 font-bold text-lg tracking-wider text-gray-200">
+            <Link to="/" className="hover:text-orange-400 transition-colors">
+              Home
+            </Link>
+            <Link to="/games/getting-under-your-nerve#about" className="hover:text-orange-400 transition-colors">
+              About
+            </Link>
+            <Link to="/games/getting-under-your-nerve#download" className="hover:text-orange-400 transition-colors">
+              Download
+            </Link>
+            <Link to="/games/getting-under-your-nerve#feedback" className="hover:text-orange-400 transition-colors">
+              Feedback
+            </Link>
+            <Link
+              to="/HowToPlayGettingUnderYourNerve"
+              className="text-orange-400 transition-colors"
+            >
+              How To Play
+            </Link>
+          </nav>
+
+          <div className="hidden md:block w-32" />
+        </div>
+      </header>
+
+      <div className="min-h-screen bg-[#0d0503] text-white relative">
         
         {/* BACKGROUND GLOW */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-red-900/20 blur-[120px]" />
         </div>
-
-        {/* SIMPLIFIED NAVBAR FOR SUBPAGE */}
-        <header className="relative z-50 border-b border-white/10 bg-[#0d0503]/80 backdrop-blur-xl">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-4 group">
-              <img src="/images/logo.png" alt="JellyByte Studios" className="w-20 h-20 object-contain group-hover:scale-110 transition-transform" />
-              <h1 className="font-bebas text-2xl tracking-wide group-hover:text-orange-400 transition-colors">
-                JELLYBYTE STUDIOS
-              </h1>
-            </a>
-          </div>
-        </header>
 
         {/* HERO SECTION */}
         <section className="relative z-10 pt-20 pb-16 px-6 text-center">
@@ -98,7 +131,7 @@ export default function HowToPlayGettingUnderYourNerve() {
 
         {/* TUTORIAL CONTENT */}
         <section className="relative z-10 pb-32 px-6">
-        <div className="max-w-6xl mx-auto space-y-32 mt-10">
+          <div className="max-w-6xl mx-auto space-y-32 mt-10">
             
             {/* 1. MOVEMENT */}
             <TutorialRow 
@@ -120,7 +153,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               accentColor="text-red-500"
             />
 
-            {/* 3. ATTACKING (NEW) */}
+            {/* 3. ATTACKING */}
             <TutorialRow 
               ruleNum="03"
               title="Calculated Wrath."
@@ -130,7 +163,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               accentColor="text-orange-500"
             />
 
-            {/* 4. SAVE / LOAD (UPDATED) */}
+            {/* 4. SAVE / LOAD */}
             <TutorialRow 
               ruleNum="04"
               title="Mastery Over Time."
@@ -165,8 +198,46 @@ export default function HowToPlayGettingUnderYourNerve() {
 
         {/* FOOTER */}
         <footer className="border-t border-white/10 py-10 px-6 relative z-10">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-sm text-gray-500">© 2026 JellyByte Studios. Good luck out there.</p>
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img
+                src="/images/logo.png"
+                alt="JellyByte Studios"
+                className="w-12 h-12 object-contain"
+              />
+              <div>
+                <p className="font-bold">JellyByte Studios</p>
+                <p className="text-sm text-gray-500">
+                  © 2026 All Rights Reserved
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-6 text-sm text-gray-400">
+              <a
+                href="https://www.instagram.com/jellybytestudios/"
+                className="hover:text-pink-400 transition"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.tiktok.com/@jellybytestudios"
+                className="hover:text-pink-400 transition"
+              >
+                TikTok
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61592068596434"
+                className="hover:text-pink-400 transition"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.youtube.com/@JellyByteStudios"
+                className="hover:text-pink-400 transition"
+              >
+                YouTube
+              </a>
+            </div>
           </div>
         </footer>
 
