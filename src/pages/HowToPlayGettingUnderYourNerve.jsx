@@ -138,7 +138,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               ruleNum="01"
               title="The Art of Motion."
               description={<>Master your vessel. The <strong className="text-orange-300">Up, Left, and Right arrow keys</strong> are your only means of navigating this treacherous world. Move with absolute purpose, leap with conviction, and never second-guess your footing.</>}
-              videoId="YOUR_YOUTUBE_ID_1" 
+              videoId="3ISMgBNs-N4" 
               isReversed={false}
               accentColor="text-orange-500"
             />
@@ -148,7 +148,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               ruleNum="02"
               title="The Unforgiving Locals."
               description="Beware the native denizens. The Crabs patrol their territory with ruthless efficiency, while the Shells wait for the perfect moment to strike. They do not negotiate. Evade them at all costs, or perish."
-              videoId="YOUR_YOUTUBE_ID_2"
+              videoId="oXpRUqk--F0"
               isReversed={true}
               accentColor="text-red-500"
             />
@@ -158,7 +158,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               ruleNum="03"
               title="Calculated Wrath."
               description={<>When evasion fails, strike the <strong className="text-orange-300">Spacebar</strong> to unleash your weapon. But heed this warning: your stamina is violently restricted. You may only swing your weapon 10 times, and it demands 10 agonizing seconds to recharge between each blow. Strike only with absolute certainty.</>}
-              videoId="YOUR_YOUTUBE_ID_3"
+              videoId="AQi9VGoE0eo"
               isReversed={false}
               accentColor="text-orange-500"
             />
@@ -167,8 +167,8 @@ export default function HowToPlayGettingUnderYourNerve() {
             <TutorialRow 
               ruleNum="04"
               title="Mastery Over Time."
-              description={<>Command the fabric of reality itself. Strike <strong className="text-orange-300">Ctrl + S</strong> to anchor your soul to the present, and <strong className="text-orange-300">Ctrl + L</strong> to resurrect from your inevitable failures. But the universe limits such defiance—you are granted a strict maximum of 3 anchors per level. Do not waste them.</>}
-              videoId="YOUR_YOUTUBE_ID_4"
+              description={<>Command the fabric of reality itself. Pass <strong className="text-orange-300">checkpoint flags</strong> scattered across the realm to anchor your soul to the present, automatically resurrecting you from your inevitable failures. But the universe limits such defiance—you are granted a strict maximum of 3 anchors per level. Do not waste them.</>}
+              videoId="gyBAfbQY5Do"
               isReversed={true}
               accentColor="text-red-500"
             />
@@ -178,7 +178,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               ruleNum="05"
               title="A Moment's Respite."
               description={<>When the relentless chaos becomes too overwhelming, strike the <strong className="text-red-300">ESC key</strong> to fracture reality. The pause menu offers a fleeting sanctuary to catch your breath before you dive back into the nightmare.</>}
-              videoId="YOUR_YOUTUBE_ID_5"
+              videoId="xysE4Rt8TAE"
               isReversed={false}
               accentColor="text-orange-500"
             />
@@ -188,7 +188,7 @@ export default function HowToPlayGettingUnderYourNerve() {
               ruleNum="06"
               title="Spoils of the Bold."
               description="Seek the golden glimmer amidst the danger. Collect scattered coins to amass your fortune, and hunt for rare powerups to turn the tide of your journey. Great risk yields great reward."
-              videoId="YOUR_YOUTUBE_ID_6"
+              videoId="Hr4KSOcipUg"
               isReversed={true}
               accentColor="text-red-500"
             />
