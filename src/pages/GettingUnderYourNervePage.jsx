@@ -397,7 +397,7 @@ export default function GettingUnderYourNervePage() {
 
                 <div className="relative group">
                   <a
-                    href="https://drive.google.com/file/d/1Zo0ClPm039YAvTYvPl8fTB7iwoq1CpQo/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1Co2deKCnaitT73S4NKiFSKDOKX9M3tzS/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-bold text-lg text-white hover:scale-105 transition-transform shadow-2xl shadow-orange-500/30"
