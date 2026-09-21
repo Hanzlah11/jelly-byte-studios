@@ -1,0 +1,67 @@
+#Releases-hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Background image */
+.releases-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.releases-background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Fade / dark overlay */
+.releases-background-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.55) 45%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+
+    z-index: 1;
+}
+
+/* Content */
+.releases-hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 180px;
+}
+
+.releases-hero-title {
+    font-size: 170px;
+    font-family: "Road Rage";
+    color: #FF0421;
+    -webkit-text-stroke: 2px #fff;
+}
+
+.releases-hero-description {
+    max-width: 900px;
+    font-size: 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.releases-hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}

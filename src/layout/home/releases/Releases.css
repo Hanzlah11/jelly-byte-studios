@@ -1,0 +1,32 @@
+#Releases{
+    margin: 80px
+}
+
+.releases-heading{
+    font-size: 4rem;
+    font-family: 'Road Rage', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.dash{
+    display: flex;
+    justify-content: center;
+}
+
+.dash hr{
+    width: 100px;
+    height: 5px;
+    background-color: #b7e600;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.releases-cards{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 3rem;
+}

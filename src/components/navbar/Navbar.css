@@ -1,0 +1,321 @@
+#Navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    gap: 80px;
+}
+
+.left .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.left .logo .jellybyte-name {
+    font-family: 'Road Rage', cursive;
+    font-size: 30px;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.mid ul {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+
+.mid ul a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 17px;
+    padding-bottom: 4px;
+}
+
+.mid ul a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #D8FA1F;
+    transition: width 0.3s ease;
+    border-radius: 20px;
+}
+
+.mid ul a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   PROFILE AREA (RIGHT)
+========================= */
+
+.right {
+    position: relative;
+}
+
+.profile-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.profile-trigger:hover {
+    transform: scale(1.05);
+}
+
+.profile-trigger:active {
+    transform: scale(0.95);
+}
+
+
+/* Profile Picture */
+.right .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease;
+}
+
+.profile-trigger:hover .profile-pic {
+    border-color: #d5ff00;
+}
+
+
+/* Initial Avatar (email/password users without photo) */
+.profile-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d5ff00, #8bc34a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a0a0a;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-trigger:hover .profile-initial {
+    border-color: #d5ff00;
+    box-shadow: 0 0 12px rgba(213, 255, 0, 0.3);
+}
+
+
+/* Guest Avatar (silhouette) */
+.guest-avatar {
+    border-radius: 50%;
+    transition: opacity 0.2s ease;
+}
+
+.profile-trigger.guest:hover .guest-avatar {
+    opacity: 0.8;
+}
+
+.profile-trigger.guest {
+    text-decoration: none;
+}
+
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 280px;
+
+    /* background: rgba(20, 20, 22, 0.97); */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(213, 255, 0, 0.15);
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+
+    padding: 8px 0;
+
+    z-index: 200;
+
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Dropdown Arrow */
+.profile-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 16px;
+
+    width: 12px;
+    height: 12px;
+
+    /* background: rgba(20, 20, 22, 0.97); */
+    border-left: 1px solid rgba(213, 255, 0, 0.15);
+    border-top: 1px solid rgba(213, 255, 0, 0.15);
+
+    transform: rotate(45deg);
+}
+
+
+/* Dropdown Header (user info) */
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 18px;
+}
+
+.dropdown-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.dropdown-avatar-initial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d5ff00, #8bc34a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0a0a0a;
+    flex-shrink: 0;
+}
+
+.dropdown-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.dropdown-name {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    /* color: #f0f0f0; */
+    color: #0a0a0a;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-email {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12px;
+    color: #424242;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Divider */
+.dropdown-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 4px 14px;
+}
+
+
+/* Menu Items */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 18px;
+
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0a0a0a;
+    letter-spacing: 0.4px;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(213, 255, 0, 0.08);
+    color: #d5ff00;
+}
+
+.dropdown-item img {
+    /* filter: invert(1); */
+    width: 20px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.dropdown-item:hover img {
+    opacity: 1;
+}
+
+
+/* Logout Button */
+.dropdown-logout {
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    color: red;
+}
+
+.dropdown-logout:hover {
+    background: rgba(255, 77, 77, 0.1);
+    color: #fa1111;
+}

@@ -1,0 +1,32 @@
+#Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #dfff00;
+}
+
+#Button.filled {
+    background-color: #dfff00;
+    color: #000;
+}
+
+#Button.filled:hover {
+    background-color: transparent;
+    border: 2px solid var(--button-color);
+    color: var(--button-color);
+}
+
+#Button.transparent {
+    background-color: transparent;
+    border: 2px solid var(--button-color);
+    color: var(--button-color);
+}
+
+#Button.transparent:hover {
+    background-color: var(--button-color);
+    color: #000;
+}
+

@@ -1,0 +1,19 @@
+#Hero{
+    background-image: linear-gradient(90deg, #FF0040 0%, #FF88B4 100%);
+    height: 80vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hero-title{
+    font-size: 170px;
+    font-family: Road Rage;
+}
+
+.about-hero-description{
+    font-size: 20px;
+    text-align: center;
+}

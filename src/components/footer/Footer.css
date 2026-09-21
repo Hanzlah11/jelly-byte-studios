@@ -1,0 +1,46 @@
+#Footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0px;
+}
+
+.footer-left{
+    width: 300px;
+}
+
+.footer-left .footer-main-heading{
+    font-family: Road Rage;
+    font-size: 50px;
+    color: #EF003B;
+}
+
+.footer-left .footer-description{
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.footer-left .footer-copyright{
+    padding-top: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: grey;
+}
+
+.footer-links-heading{
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+
+.footer-links ul{
+    list-style: none;
+}
+
+.footer-links ul li{
+    padding-bottom: 10px;
+}
+
+.footer-links ul li a{
+    text-decoration: none;
+    color: rgb(165, 165, 165);
+    font-size: 14px;
+}

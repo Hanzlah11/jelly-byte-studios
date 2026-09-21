@@ -1,0 +1,19 @@
+#Contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    padding: 100px 0px;
+    background-image: linear-gradient(to right, #460478 , #92045A);
+}
+
+.contact-heading{
+    font-size: 120px;
+    font-family: Road Rage;
+}
+    
+.contact-button{
+    display: flex;
+    gap: 30px;
+}

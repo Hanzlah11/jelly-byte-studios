@@ -1,0 +1,1025 @@
+.profile-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: #fff;
+  padding-top: 80px;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+.profile-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-card {
+  background-color: #161618;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #a3e635;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-header-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-header-info-v2 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-avatar-container-v2 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-avatar-v2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+
+.profile-status-dot {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #161618;
+}
+
+.profile-status-dot.online {
+  background-color: #a3e635;
+}
+
+.profile-details-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.tag-green {
+  color: #a3e635;
+  background-color: rgba(163, 230, 53, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.tag-purple {
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.member-since {
+  color: #888;
+  font-weight: 500;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.profile-name-v2 {
+  font-family: Road Rage;
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.profile-handle {
+  color: #a3e635;
+  font-size: 1rem;
+  font-family: Road Rage;
+}
+
+.profile-specs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.spec-dot {
+  color: #555;
+}
+
+.spec-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-secondary,
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: #2a2a2c;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.btn-secondary:hover {
+  background-color: #3a3a3c;
+}
+
+.btn-primary {
+  background-color: #a3e635;
+  color: #000;
+  border: 1px solid #a3e635;
+}
+
+.btn-primary:hover {
+  background-color: #bbf7d0;
+  box-shadow: 0 0 15px rgba(163, 230, 53, 0.3);
+}
+
+/* Stats Row V2 */
+.profile-stats-row-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card-v2 {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-header-v2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label-v2 {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.stat-value-v2 {
+  font-family: Road Rage;
+  font-size: 3rem;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.stat-unit-v2 {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 0.7rem;
+  color: #aaa;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.stat-highlight {
+  color: #c084fc;
+}
+
+/* Main Grid V2 */
+.profile-main-grid-v2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* Section Headers */
+.section-header-v2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title-v2 {
+  font-family: Road Rage;
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.count-badge {
+  background-color: rgba(163, 230, 53, 0.1);
+  color: #a3e635;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.filter-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.filter-chip {
+  background: none;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+  background-color: rgba(163, 230, 53, 0.1);
+  color: #a3e635;
+  border-color: #a3e635;
+}
+
+/* Games List V2 */
+.games-list-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game-item-v2 {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card-content {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.game-card-left {
+  flex-shrink: 0;
+}
+
+.game-cover-v2 {
+  width: 90px;
+  height: 90px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #333;
+}
+
+.dev-placeholder-cover {
+  width: 90px;
+  height: 90px;
+  border-radius: 4px;
+  background-color: #2a2a2c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #444;
+}
+
+.game-card-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.game-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.tag-status {
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tag-status.green {
+  background-color: #a3e635;
+  color: #000;
+}
+
+.tag-status.purple {
+  background-color: #c084fc;
+  color: #000;
+}
+
+.tag-status.grey {
+  background-color: #555;
+  color: #fff;
+}
+
+.tag-genre {
+  color: #888;
+}
+
+.tag-genre.highlight-yellow {
+  color: #fbbf24;
+}
+
+.tag-badge-right {
+  margin-left: auto;
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.game-title-v2 {
+  font-family: Road Rage;
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.game-version-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.version-text {
+  color: #fff;
+  font-weight: 500;
+}
+
+.size-text {
+  color: #aaa;
+}
+
+.steam-key-claimed {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #a3e635;
+  margin-top: 4px;
+}
+
+.branch-info {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.branch-code {
+  font-family: monospace;
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.drm-free-info {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.drm-free-info.highlight-purple {
+  color: #c084fc;
+}
+
+.game-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  width: 220px;
+}
+
+.btn-download-primary,
+.btn-download-purple,
+.btn-download-secondary,
+.btn-download-outline {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-download-primary {
+  background-color: #a3e635;
+  color: #000;
+}
+
+.btn-download-primary:hover {
+  background-color: #bbf7d0;
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.3);
+}
+
+.btn-download-purple {
+  background-color: rgba(192, 132, 252, 0.2);
+  color: #c084fc;
+  border: 1px solid #c084fc;
+}
+
+.btn-download-purple:hover {
+  background-color: rgba(192, 132, 252, 0.3);
+}
+
+.btn-download-secondary {
+  background-color: #2a2a2c;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.btn-download-secondary:hover {
+  background-color: #3a3a3c;
+}
+
+.btn-download-outline {
+  background-color: transparent;
+  color: #a3e635;
+  border: 1px solid #a3e635;
+}
+
+.btn-download-outline:hover {
+  background-color: rgba(163, 230, 53, 0.1);
+}
+
+.platform-info {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.platform-info.highlight-green {
+  color: #a3e635;
+}
+
+.platform-info.highlight-purple {
+  color: #c084fc;
+}
+
+.game-card-footer {
+  background-color: #111111;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2a2a2c;
+}
+
+.platform-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-label {
+  font-size: 0.7rem;
+  color: #666;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.platform-tag {
+  font-size: 0.75rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.platform-tag.highlight {
+  color: #c084fc;
+  background-color: rgba(192, 132, 252, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.patch-notes-link,
+.feedback-link {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.patch-notes-link:hover {
+  color: #fff;
+}
+
+.feedback-link {
+  color: #a3e635;
+}
+
+.feedback-link:hover {
+  color: #bbf7d0;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.divider {
+  color: #333;
+}
+
+/* Sidebars V2 */
+.sidebar-column-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a2c;
+}
+
+.sidebar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-title {
+  font-family: Road Rage;
+  font-size: 1.7rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-subtitle {
+  font-size: 0.7rem;
+  color: #666;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.sidebar-subtitle.highlight-yellow {
+  color: #fbbf24;
+}
+
+/* Keys List */
+.keys-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.key-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.key-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.key-game-name {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.status-active {
+  color: #a3e635;
+}
+
+.status-beta {
+  color: #c084fc;
+}
+
+.status-backer {
+  color: #a3e635;
+}
+
+.key-code-box {
+  display: flex;
+  background-color: #111111;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.key-code {
+  flex: 1;
+  padding: 8px 12px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+}
+
+.btn-copy {
+  background-color: #2a2a2c;
+  color: #a3e635;
+  border: none;
+  border-left: 1px solid #333;
+  padding: 0 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-copy:hover {
+  background-color: #3a3a3c;
+}
+
+.btn-copy.linked {
+  color: #888;
+  pointer-events: none;
+}
+
+/* Feedback List */
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feedback-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.feedback-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  line-height: 1.3;
+  max-width: 80%;
+}
+
+.feedback-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tag-open {
+  background-color: rgba(163, 230, 53, 0.2);
+  color: #a3e635;
+}
+
+.tag-resolved {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #888;
+}
+
+.feedback-desc {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.feedback-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.feedback-deadline,
+.feedback-reward {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.feedback-action {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a3e635;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.5px;
+}
+
+.feedback-action.muted {
+  color: #666;
+  cursor: default;
+}
+
+/* Connected Accounts V2 */
+.accounts-list-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-item-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-info-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-icon-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-details-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.account-name-v2 {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.account-handle-v2 {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.account-handle-v2.disconnected {
+  color: #555;
+}
+
+.account-status-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.account-status-badge.linked {
+  color: #a3e635;
+  background-color: rgba(163, 230, 53, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.btn-connect {
+  background-color: transparent;
+  border: 1px solid #444;
+  color: #888;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-connect:hover {
+  border-color: #a3e635;
+  color: #a3e635;
+}
+
+/* Account Link Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background-color: #161618;
+  border: 1px solid #333;
+  border-top: 2px solid #a3e635;
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-title {
+  font-family: Road Rage;
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.modal-desc {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin: 0;
+}
+
+.modal-input {
+  background-color: #111111;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  border-color: #a3e635;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: #888;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.btn-cancel:hover {
+  background-color: #2a2a2c;
+  color: #fff;
+}
+
+.btn-submit {
+  background-color: #a3e635;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.btn-submit:hover {
+  background-color: #bbf7d0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile-stats-row-v2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-main-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .profile-header-v2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .game-card-content {
+    flex-direction: column;
+  }
+
+  .game-card-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .platform-info {
+    text-align: left;
+  }
+
+  .game-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

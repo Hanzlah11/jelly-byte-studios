@@ -1,0 +1,316 @@
+.vision-mission {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  box-sizing: border-box;
+}
+
+
+.vm-box {
+  position: relative;
+  min-height: 190px;
+  box-sizing: border-box;
+}
+
+.vm-content {
+  position: relative;
+  z-index: 2;
+}
+
+.vm-box h2 {
+  position: absolute;
+  margin: 0;
+
+  color: #dfff00;
+
+  padding: 0 7px;
+
+  font-size: 27px;
+  font-weight: 900;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+  letter-spacing: 1px;
+  line-height: 1;
+
+  z-index: 5;
+}
+
+.vm-box p {
+
+  color: #c8c8c8;
+
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+
+
+.vision-box {
+  padding: 18px 80px 25px 20px;
+
+  border-left: 3px solid #dfff00;
+  border-bottom: 3px solid #dfff00;
+  box-sizing: border-box;
+}
+
+
+.vision-box::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 53px;
+  height: 3px;
+
+  background: #dfff00;
+}
+
+
+.vision-box h2 {
+  top: -30px;
+  left: 52px;
+}
+
+
+
+.vision-box p {
+  max-width: 740px;
+  padding: 33px 40px;
+}
+
+
+
+.bulb {
+  position: absolute;
+
+  width: 55px;
+  height: 65px;
+
+  right: 0;
+  bottom: -5px;
+
+  z-index: 4;
+}
+
+.bulb img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+
+.mission-box {
+  margin-top: 40px;
+
+  padding: 25px 65px 25px 80px;
+
+  border-right: 3px solid #dfff00;
+  border-bottom: 3px solid #dfff00;
+
+  box-sizing: border-box;
+}
+
+
+
+.mission-box::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 740px;
+
+  right: 0;
+
+  height: 3px;
+  width: 100px;
+
+  background: #dfff00;
+}
+
+
+
+
+.mission-box h2 {
+  top: -36px;
+  right: 33px;
+
+  z-index: 5;
+}
+
+
+
+.mission-box p {
+  max-width: 740px;
+  padding: 33px 40px;
+  margin-left: auto;
+
+  text-align: right;
+}
+
+
+
+.target {
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  left: -8px;
+  bottom: -17px;
+
+  z-index: 5;
+}
+
+.target img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+
+@media (max-width: 700px) {
+
+  .vision-mission {
+    padding: 50px 20px;
+  }
+
+  .vm-box {
+    min-height: 230px;
+  }
+
+
+  /* VISION */
+
+  .vision-box {
+    padding: 30px 65px 30px 18px;
+  }
+
+  .vision-box h2 {
+    left: 30px;
+  }
+
+  .vision-box::before {
+    width: 30px;
+  }
+
+  .vision-box::after {
+    left: 106px;
+  }
+
+
+  /* MISSION */
+
+  .mission-box {
+    margin-top: 35px;
+
+    padding: 30px 55px 30px 65px;
+  }
+
+  .mission-box h2 {
+    right: 25px;
+  }
+
+
+  /* TEXT */
+
+  .vm-box p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+
+  /* ICONS */
+
+  .bulb {
+    right: 0;
+    bottom: -5px;
+  }
+
+  .target {
+    left: -5px;
+    bottom: -17px;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .vision-mission {
+    padding: 40px 12px;
+  }
+
+  .vm-box {
+    min-height: 260px;
+  }
+
+
+  /* VISION */
+
+  .vision-box {
+    padding-right: 45px;
+  }
+
+  .vision-box h2 {
+    left: 25px;
+  }
+
+  .vision-box::before {
+    width: 25px;
+  }
+
+  .vision-box::after {
+    left: 95px;
+  }
+
+
+  /* MISSION */
+
+  .mission-box {
+    padding-left: 55px;
+    padding-right: 35px;
+  }
+
+  .mission-box h2 {
+    right: 15px;
+  }
+
+
+  /* TEXT */
+
+  .vm-box h2 {
+    font-size: 23px;
+  }
+
+  .vm-box p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+
+  /* ICONS */
+
+  .bulb {
+    width: 50px;
+    height: 60px;
+    right: -2px;
+  }
+
+  .target {
+    width: 50px;
+    height: 50px;
+    left: -5px;
+  }
+}

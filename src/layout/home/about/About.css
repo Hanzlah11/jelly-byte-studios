@@ -1,0 +1,88 @@
+#About{
+    margin: 40px 85px;
+}
+
+.about-upper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.about-upper-left{
+    position: relative;
+    width: 420px;
+    height: 500px;
+    overflow: visible;
+}
+
+.about-background-shape{
+    position: absolute;
+    inset: 0;
+
+    clip-path: polygon(
+        5% 0%,
+        100% 5%,
+        100% 94%,
+        5% 100%
+    );
+}
+
+.shape-1 {
+    background: white;
+
+    top: 12px;
+    left: 12px;
+
+    z-index: 1;
+    transform: translate(12px, 12px);
+
+}
+
+.shape-2 {
+    background: linear-gradient(
+        135deg,
+        #6d20e8 0%,
+        #a8d7ff 55%,
+        #e8ffff 100%
+    );
+
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+    filter:
+        drop-shadow(8px 10px 10px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 0 15px rgba(109, 32, 232, 0.35));
+}
+
+.about-upper-right{
+    width: 50%;
+}
+
+.about-right-heading{
+    font-size: 100px;
+    font-family: 'Road Rage', sans-serif;
+}
+
+.about-right-description{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.about-lower{
+    margin-top: 80px;   
+}
+
+.about-lower-heading{
+    font-size: 80px;
+    font-family: 'Road Rage', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.about-lower-cards{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 50px;
+}

@@ -1,0 +1,132 @@
+.controlled-chaos { 
+  padding: 80px 7%;
+  font-family: Arial, sans-serif;
+}
+
+/* Top Content */
+
+.chaos-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chaos-title {
+  flex: 1;
+}
+
+.chaos-title p {
+  font-size: 90px;
+  font-family: Road Rage;
+}
+
+.chaos-title span {
+  display: block;
+  width: 65px;
+  height: 3px;
+  background: #d7ff00;
+  margin-top: 10px;
+  margin-left: 415px;
+}
+
+/* Description */
+
+.chaos-description {
+  flex: 1.2;
+  max-width: 550px;
+}
+
+.chaos-description p {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #bdbdbd;
+  margin: 0 0 18px;
+}
+
+/* Stats Box */
+
+.chaos-stats {
+  max-width: 1050px;
+  margin: 70px auto 0;
+
+  border: 1px solid #d7ff00;
+  background-color: #202020;
+  border-radius: 6px;
+
+  padding: 50px 30px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+  flex: 1;
+}
+
+.stat h3 {
+  font-family: Road Rage;
+  font-size: 60px;
+  margin: 0 0 8px;
+  font-weight: 400;
+}
+
+.stat p {
+  color: #d7ff00;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .controlled-chaos {
+    padding: 60px 25px;
+  }
+
+  .chaos-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .chaos-title h2 {
+    font-size: 28px;
+  }
+
+  .chaos-description {
+    max-width: 100%;
+  }
+
+  .chaos-stats {
+    margin-top: 50px;
+    padding: 20px 10px;
+  }
+
+  .stat h3 {
+    font-size: 24px;
+  }
+
+  .stat p {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .chaos-stats {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .stat {
+    width: 100%;
+  }
+}

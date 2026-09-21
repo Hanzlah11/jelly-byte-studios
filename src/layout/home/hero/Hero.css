@@ -1,0 +1,36 @@
+#Home-Hero {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(90deg, #FF0040 0%, #FF88B4 100%);
+}
+
+.main-hero-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Road Rage', cursive;
+    font-size: 32rem;
+    color: white;
+}
+
+.hero-avatar {
+    display: flex;
+}
+
+.hero-avatar img {
+    width: 25%;
+    padding-top: 5rem;
+    z-index: 1;
+}
+
+.studio-text {
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Road Rage', cursive;
+    font-size: 10rem;
+    color: #D8FA1F;
+    z-index: 100;
+}

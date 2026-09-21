@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Rammetto+One&family=Righteous&family=Road+Rage&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background:
+    radial-gradient(
+      circle at 20% 40%,
+      rgba(215, 255, 0, 0.06),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(140, 60, 255, 0.05),
+      transparent 35%
+    ),
+    #050505;
+  color: white;
+  font-family: 'Roboto Flex', sans-serif;
+}

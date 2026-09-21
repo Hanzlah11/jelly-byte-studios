@@ -1,0 +1,40 @@
+.value-card {
+  background-image: linear-gradient(90deg, #FF0040 0%, #FF88B4 100%);
+  border-radius: 200px 200px 0 0;
+  text-align: center;
+  height: 510px;
+  width: 250px;
+  box-shadow: 0 10px 24px rgba(230, 0, 92, 0.35);
+}
+
+.value-card__icon-wrap {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.value-card__icon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.value-card__title {
+  font-family: Road Rage;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
+.value-card__description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0px 20px;
+  margin: 0;
+}
