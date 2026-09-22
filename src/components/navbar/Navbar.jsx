@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
-import profile from '../../assets/icons/profile.png'
-import favorite from '../../assets/icons/heart.png'
+import profile from '../../assets/Icons/profile.png'
+import favorite from '../../assets/Icons/heart.png'
 import { useAuth } from '../../contexts/AuthContext'
 
 const Navbar = () => {

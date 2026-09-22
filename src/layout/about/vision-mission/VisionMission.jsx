@@ -1,7 +1,7 @@
 import React from 'react'
 import "./VisionMission.css";
-import Bulb from "../../../assets/Icons/bulb.png"
-import Target from "../../../assets/Icons/target.png"
+import Bulb from "../../../assets/Icons/Bulb.png"
+import Target from "../../../assets/Icons/Target.png"
 
 
 const VisionMission = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import img1 from "../../../assets/Game/GUTN/Image-1.png"
-import img2 from "../../../assets/Game/GUTN/Image-2.png"
-import img3 from "../../../assets/Game/GUTN/Image-3.png"
+import img1 from "../../../assets/Game/GUTN/image-1.png"
+import img2 from "../../../assets/Game/GUTN/image-2.png"
+import img3 from "../../../assets/Game/GUTN/image-3.png"
 import "./AboutGame.css";
 
 const AboutGame = () => {
