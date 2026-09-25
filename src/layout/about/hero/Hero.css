@@ -6,14 +6,59 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .about-hero-title{
     font-size: 170px;
     font-family: Road Rage;
+    text-align: center;
 }
 
 .about-hero-description{
     font-size: 20px;
     text-align: center;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .about-hero-title {
+        font-size: 120px;
+    }
+
+    .about-hero-description {
+        font-size: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #Hero {
+        height: auto;
+        padding: 80px 25px 50px;
+    }
+
+    .about-hero-title {
+        font-size: 70px;
+    }
+
+    .about-hero-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-title {
+        font-size: 45px;
+    }
+
+    .about-hero-description {
+        font-size: 14px;
+    }
+
+    #Hero {
+        padding: 70px 15px 40px;
+    }
 }

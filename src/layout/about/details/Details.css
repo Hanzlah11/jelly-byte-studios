@@ -29,7 +29,7 @@
   height: 3px;
   background: #d7ff00;
   margin-top: 10px;
-  margin-left: 415px;
+  margin-left: auto;
 }
 
 /* Description */
@@ -85,6 +85,12 @@
 
 /* Responsive */
 
+@media (max-width: 1024px) {
+  .chaos-title p {
+    font-size: 65px;
+  }
+}
+
 @media (max-width: 768px) {
 
   .controlled-chaos {
@@ -97,8 +103,12 @@
     gap: 40px;
   }
 
-  .chaos-title h2 {
-    font-size: 28px;
+  .chaos-title p {
+    font-size: 50px;
+  }
+
+  .chaos-title span {
+    margin-left: 0;
   }
 
   .chaos-description {
@@ -120,6 +130,14 @@
 }
 
 @media (max-width: 480px) {
+
+  .chaos-title p {
+    font-size: 36px;
+  }
+
+  .chaos-description p {
+    font-size: 15px;
+  }
 
   .chaos-stats {
     flex-direction: column;

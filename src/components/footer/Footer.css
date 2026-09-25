@@ -1,11 +1,14 @@
 #Footer{
     display: flex;
     justify-content: space-around;
-    padding: 50px 0px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
 .footer-left{
     width: 300px;
+    max-width: 100%;
 }
 
 .footer-left .footer-main-heading{
@@ -43,4 +46,38 @@
     text-decoration: none;
     color: rgb(165, 165, 165);
     font-size: 14px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    #Footer {
+        justify-content: flex-start;
+        padding: 40px 25px;
+        gap: 35px;
+    }
+
+    .footer-left {
+        width: 100%;
+    }
+
+    .footer-left .footer-main-heading {
+        font-size: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #Footer {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .footer-left .footer-main-heading {
+        font-size: 35px;
+    }
+
+    .footer-left .footer-description {
+        font-size: 14px;
+    }
 }

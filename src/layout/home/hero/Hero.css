@@ -2,6 +2,7 @@
     position: relative;
     height: 100vh;
     background-image: linear-gradient(90deg, #FF0040 0%, #FF88B4 100%);
+    overflow: hidden;
 }
 
 .main-hero-text {
@@ -12,6 +13,7 @@
     font-family: 'Road Rage', cursive;
     font-size: 32rem;
     color: white;
+    white-space: nowrap;
 }
 
 .hero-avatar {
@@ -33,4 +35,74 @@
     font-size: 10rem;
     color: #D8FA1F;
     z-index: 100;
+    white-space: nowrap;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main-hero-text {
+        font-size: 20rem;
+    }
+
+    .studio-text {
+        font-size: 7rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #Home-Hero {
+        height: auto;
+        min-height: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+        padding-bottom: 2rem;
+    }
+
+    .main-hero-text {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: none;
+        font-size: 12rem;
+        text-align: center;
+    }
+
+    .studio-text {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: none;
+        font-size: 4.5rem;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .hero-avatar {
+        justify-content: center;
+    }
+
+    .hero-avatar img {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #Home-Hero {
+        padding-top: 70px;
+    }
+
+    .main-hero-text {
+        font-size: 10rem;
+    }
+
+    .studio-text {
+        font-size: 3rem;
+    }
+
+    .hero-avatar img {
+        padding-top: 0;
+    }
 }

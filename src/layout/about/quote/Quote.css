@@ -4,4 +4,28 @@
     font-size: 100px;
     padding: 100px;
     text-align: center;
+    box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #Quote {
+        font-size: 70px;
+        padding: 70px 50px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #Quote {
+        font-size: 45px;
+        padding: 50px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    #Quote {
+        font-size: 30px;
+        padding: 40px 20px;
+    }
 }

@@ -1,19 +1,57 @@
-#Contact{
+#Contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
     width: 100%;
-    padding: 100px 0px;
-    background-image: linear-gradient(to right, #460478 , #92045A);
+    padding: 100px 20px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, #460478, #92045A);
 }
 
-.contact-heading{
+.contact-heading {
     font-size: 120px;
     font-family: Road Rage;
+    text-align: center;
 }
-    
-.contact-button{
+
+.contact-button {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .contact-heading {
+        font-size: 80px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #Contact {
+        padding: 60px 20px;
+        gap: 30px;
+    }
+
+    .contact-heading {
+        font-size: 50px;
+    }
+
+    .contact-button {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-heading {
+        font-size: 48px;
+    }
+
+    #Contact {
+        padding: 40px 15px;
+        gap: 25px;
+    }
 }

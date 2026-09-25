@@ -42,8 +42,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 435px;
-  height: 480px;
+  width: 100%;
+  max-width: 435px;
+  min-height: 480px;
 
   margin: 0 auto;
   padding: 34px;
@@ -75,6 +76,7 @@
 
 .input-group {
   margin-bottom: 7px;
+  width: 100%;
 }
 
 .input-group label {
@@ -90,7 +92,7 @@
 
 .input-group input,
 .input-group textarea {
-  width: 370px;
+  width: 100%;
 
   box-sizing: border-box;
 
@@ -148,40 +150,51 @@
 }
 
 
-
-@media (max-width: 450px) {
-
-  .reviews {
-    padding: 30px 20px 60px;
+/* Tablet */
+@media (max-width: 768px) {
+  .reviews-heading p {
+    font-size: 65px;
   }
 
-  .reviews-heading h2 {
-    font-size: 22px;
+  .reviews {
+    padding: 30px 20px 50px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .reviews-heading p {
+    font-size: 40px;
+  }
+
+  .reviews-heading span {
+    font-size: 14px;
   }
 
   .feedback-form {
-    width: 180px;
-    min-height: 185px;
+    padding: 25px 18px;
+    min-height: auto;
   }
 
   .feedback-note {
-    font-size: 7px;
+    font-size: 15px;
+    padding: 0 10px;
   }
 
   .input-group label {
-    font-size: 6px;
+    font-size: 10px;
   }
 
   .input-group input,
   .input-group textarea {
-    font-size: 7px;
+    font-size: 11px;
   }
 
   .input-group input {
-    height: 22px;
+    height: 35px;
   }
 
   .input-group textarea {
-    height: 75px;
+    height: 100px;
   }
 }

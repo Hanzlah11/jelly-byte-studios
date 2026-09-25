@@ -10,7 +10,7 @@
 
 .squad-section__title {
   font-family: Road Rage;
-  font-size: 80px;
+  font-size: clamp(40px, 8vw, 80px);
   margin: 0 0 16px;
 }
 

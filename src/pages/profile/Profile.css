@@ -1004,6 +1004,15 @@
     gap: 20px;
   }
 
+  .profile-name-v2 {
+    font-size: 2.5rem;
+  }
+
+  .profile-name-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   .game-card-content {
     flex-direction: column;
   }
@@ -1021,5 +1030,74 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .profile-header-actions {
+    flex-wrap: wrap;
+  }
+
+  .section-header-v2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filter-chips {
+    flex-wrap: wrap;
+  }
+
+  .section-title-v2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page-container {
+    padding-top: 70px;
+  }
+
+  .profile-content {
+    padding: 20px 12px;
+  }
+
+  .profile-card {
+    padding: 16px;
+  }
+
+  .profile-name-v2 {
+    font-size: 2rem;
+  }
+
+  .profile-stats-row-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value-v2 {
+    font-size: 2rem;
+  }
+
+  .profile-header-info-v2 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .profile-specs-row {
+    flex-wrap: wrap;
+  }
+
+  .key-code-box {
+    flex-direction: column;
+  }
+
+  .btn-copy {
+    border-left: none;
+    border-top: 1px solid #333;
+    padding: 8px;
+    justify-content: center;
+  }
+
+  .modal-box {
+    margin: 0 16px;
   }
 }

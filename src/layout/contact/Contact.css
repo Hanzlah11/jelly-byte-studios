@@ -35,7 +35,7 @@
 .contact-header .main-heading {
   font-family: Road Rage;
 
-  font-size: 100px;
+  font-size: clamp(40px, 10vw, 100px);
   line-height: 0.85;
   letter-spacing: -2px;
 
@@ -238,7 +238,7 @@
 .cta-content .cta-heading {
   font-family: Road Rage;
 
-  font-size: 90px;
+  font-size: clamp(35px, 9vw, 90px);
   line-height: 0.9;
 
 }

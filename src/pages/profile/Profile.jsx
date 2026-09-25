@@ -374,7 +374,7 @@ const Profile = () => {
                     </div>
                   </div>
                   {userProfile?.linkedAccounts?.steam ? (
-                    <button className="account-status-badge linked" onClick={() => unlinkAccount('steam')} style={{cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635'}}>LINKED (x)</button>
+                    <button className="account-status-badge linked" onClick={() => unlinkAccount('steam')} style={{ cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635' }}>LINKED (x)</button>
                   ) : (
                     <button className="btn-connect" onClick={() => {
                       setModalPlatform('steam');
@@ -396,7 +396,7 @@ const Profile = () => {
                     </div>
                   </div>
                   {userProfile?.linkedAccounts?.discord ? (
-                    <button className="account-status-badge linked" onClick={() => unlinkAccount('discord')} style={{cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635'}}>LINKED (x)</button>
+                    <button className="account-status-badge linked" onClick={() => unlinkAccount('discord')} style={{ cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635' }}>LINKED (x)</button>
                   ) : (
                     <button className="btn-connect" onClick={() => {
                       setModalPlatform('discord');
@@ -418,7 +418,7 @@ const Profile = () => {
                     </div>
                   </div>
                   {userProfile?.linkedAccounts?.epic ? (
-                    <button className="account-status-badge linked" onClick={() => unlinkAccount('epic')} style={{cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635'}}>LINKED (x)</button>
+                    <button className="account-status-badge linked" onClick={() => unlinkAccount('epic')} style={{ cursor: 'pointer', background: 'transparent', border: 'none', color: '#a3e635' }}>LINKED (x)</button>
                   ) : (
                     <button className="btn-connect" onClick={() => {
                       setModalPlatform('epic');
@@ -443,9 +443,9 @@ const Profile = () => {
           <div className="modal-box" onClick={(e) => e.stopPropagation()}>
             <h3 className="modal-title">CONNECT {modalPlatform?.toUpperCase()}</h3>
             <p className="modal-desc">Enter your {modalPlatform} handle or username to link it to your Jellybyte Studios account.</p>
-            <input 
-              type="text" 
-              className="modal-input" 
+            <input
+              type="text"
+              className="modal-input"
               placeholder={`e.g. ${modalPlatform}_user123`}
               value={modalInputHandle}
               onChange={(e) => setModalInputHandle(e.target.value)}

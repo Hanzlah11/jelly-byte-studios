@@ -25,7 +25,7 @@
 
   font-family: Road Rage;
 
-  font-size: 70px;
+  font-size: clamp(35px, 7vw, 70px);
   line-height: 1;
   letter-spacing: 1px;
   color: #fff;

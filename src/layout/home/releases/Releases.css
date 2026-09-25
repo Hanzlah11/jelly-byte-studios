@@ -1,5 +1,5 @@
 #Releases{
-    margin: 80px
+    margin: 80px;
 }
 
 .releases-heading{
@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     color: white;
+    text-align: center;
 }
 
 .dash{
@@ -29,4 +30,49 @@
     justify-content: center;
     gap: 50px;
     margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #Releases {
+        margin: 60px 40px;
+    }
+
+    .releases-heading {
+        font-size: 3rem;
+    }
+
+    .releases-cards {
+        gap: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #Releases {
+        margin: 40px 20px;
+    }
+
+    .releases-heading {
+        font-size: 2.2rem;
+    }
+
+    .releases-cards {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #Releases {
+        margin: 30px 15px;
+    }
+
+    .releases-heading {
+        font-size: 1.8rem;
+    }
+
+    .releases-cards {
+        gap: 20px;
+    }
 }

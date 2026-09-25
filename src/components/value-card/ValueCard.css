@@ -4,12 +4,15 @@
   text-align: center;
   height: 510px;
   width: 250px;
+  max-width: 100%;
   box-shadow: 0 10px 24px rgba(230, 0, 92, 0.35);
+  box-sizing: border-box;
 }
 
 .value-card__icon-wrap {
   width: 250px;
-  height: 250px;
+  max-width: 100%;
+  aspect-ratio: 1;
   border-radius: 50%;
   background: #ffffff;
   display: flex;
@@ -37,4 +40,40 @@
   line-height: 1.6;
   padding: 0px 20px;
   margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .value-card {
+    width: 220px;
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .value-card__icon-wrap {
+    width: 220px;
+  }
+
+  .value-card__title {
+    font-size: 2rem;
+  }
+
+  .value-card__description {
+    font-size: 0.8rem;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .value-card {
+    width: 200px;
+  }
+
+  .value-card__icon-wrap {
+    width: 200px;
+  }
+
+  .value-card__title {
+    font-size: 1.8rem;
+  }
 }
