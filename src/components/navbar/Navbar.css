@@ -458,6 +458,7 @@
         margin-top: auto;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         padding: 12px 0;
+        padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     }
 
     .mobile-profile-link {
