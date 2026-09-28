@@ -23,8 +23,8 @@
 }
 
 .value-card__icon {
-  width: 46px;
-  height: 46px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 

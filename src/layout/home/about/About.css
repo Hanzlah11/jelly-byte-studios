@@ -56,6 +56,20 @@
         drop-shadow(0 0 15px rgba(109, 32, 232, 0.35));
 }
 
+.about-char-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 105%;
+    max-height: 110%;
+    object-fit: contain;
+    object-position: bottom;
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+}
+
 .about-upper-right{
     width: 50%;
 }

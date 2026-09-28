@@ -13,7 +13,7 @@ const squadMembers = [
     image: Hanzlah,
     linkedin: "https://linkedin.com/in/hanzlah-imran",
     discord: "https://discord.com/users/hanzlah-imran",
-    website: "https://hanzlahimran.dev",
+    github: "https://github.com/Hanzlah11",
   },
   {
     name: "Mohib Sardar",
@@ -21,7 +21,7 @@ const squadMembers = [
     image: Mohib,
     linkedin: "https://linkedin.com/in/mohib-sardar",
     discord: "https://discord.com/users/mohib-sardar",
-    website: "https://mohibsardar.dev",
+    github: "https://github.com/mohib-sardar",
   },
   {
     name: "Haider Husnain",
@@ -29,7 +29,7 @@ const squadMembers = [
     image: Haider,
     linkedin: "https://linkedin.com/in/haider-husnain",
     discord: "https://discord.com/users/haider-husnain",
-    website: "https://haiderhusnain.dev",
+    github: "https://github.com/haider-husnain",
   },
   {
     name: "Abdur Rafay",
@@ -37,7 +37,7 @@ const squadMembers = [
     image: Rafay,
     linkedin: "https://linkedin.com/in/abdur-rafay",
     discord: "https://discord.com/users/abdur-rafay",
-    website: "https://abdurrafay.dev",
+    github: "https://github.com/abdur-rafay",
   },
 ];
 

@@ -17,7 +17,7 @@ const Hero = () => {
                     A brutal precision platformer where every jump tests your patience, reflexes, and sanity. Dodge deadly traps, survive unpredictable mechanics, and conquer levels designed to break you.
                 </div>
                 <div className="releases-hero-buttons">
-                    <Button text="DOWNLOAD NOW" color="#dfff00" padding="20px 30px" href="https://jellybytestudios.itch.io/" />
+                    <Button text="DOWNLOAD NOW" color="#dfff00" padding="20px 30px" href="https://share.google/7H5YgSYrvzJgmTM9B" />
                     <Button text="VIEW TRAILER" textColor="#dfff00" padding="20px 30px" href="#Trailer" />
                 </div>
             </div>

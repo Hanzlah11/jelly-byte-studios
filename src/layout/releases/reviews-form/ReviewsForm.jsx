@@ -33,7 +33,7 @@ const Reviews = () => {
           ALL IDEAS ARE WELCOMED, INCLUDING CRITIQUES
         </p>
 
-        <div className="input-group">
+        <div className="reviews-input-group">
           <label htmlFor="name">
             YOUR NAME
           </label>
@@ -48,7 +48,7 @@ const Reviews = () => {
         </div>
 
 
-        <div className="input-group">
+        <div className="reviews-input-group">
           <label htmlFor="feedback">
             YOUR FEEDBACK
           </label>

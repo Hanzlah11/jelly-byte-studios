@@ -74,12 +74,12 @@
 }
 
 
-.input-group {
+.reviews-input-group {
   margin-bottom: 7px;
   width: 100%;
 }
 
-.input-group label {
+.reviews-input-group label {
   display: block;
 
   color: #fff;
@@ -90,8 +90,8 @@
   margin-bottom: 5px;
 }
 
-.input-group input,
-.input-group textarea {
+.reviews-input-group input,
+.reviews-input-group textarea {
   width: 100%;
 
   box-sizing: border-box;
@@ -111,27 +111,27 @@
   border-radius: 5px;
 }
 
-.input-group input {
+.reviews-input-group input {
   height: 40px;
   margin-bottom: 10px;
 }
 
-.input-group textarea {
+.reviews-input-group textarea {
   height: 150px;
 
   resize: none;
 }
 
-.input-group input::placeholder,
-.input-group textarea::placeholder {
+.reviews-input-group input::placeholder,
+.reviews-input-group textarea::placeholder {
   color: #777;
 }
 
 
 /* Focus */
 
-.input-group input:focus,
-.input-group textarea:focus {
+.reviews-input-group input:focus,
+.reviews-input-group textarea:focus {
   border-color: #dfff00;
 }
 
@@ -181,20 +181,20 @@
     padding: 0 10px;
   }
 
-  .input-group label {
+  .reviews-input-group label {
     font-size: 10px;
   }
 
-  .input-group input,
-  .input-group textarea {
+  .reviews-input-group input,
+  .reviews-input-group textarea {
     font-size: 11px;
   }
 
-  .input-group input {
+  .reviews-input-group input {
     height: 35px;
   }
 
-  .input-group textarea {
+  .reviews-input-group textarea {
     height: 100px;
   }
 }

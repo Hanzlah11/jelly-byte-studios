@@ -1,5 +1,6 @@
 import React from 'react'
 import "./About.css"
+import aboutChar from "../../../assets/Avatars/About-char.png"
 import Button from "../../../components/button/Button"
 import AboutCard from "../../../components/about-card/AboutCard"
 
@@ -10,6 +11,7 @@ const About = () => {
                 <div className="about-upper-left">
                     <div className="about-background-shape shape-1"></div>
                     <div className="about-background-shape shape-2"></div>
+                    <img src={aboutChar} alt="JellyByte character" className="about-char-img" />
                 </div>
                 <div className="about-upper-right">
                     <div className="about-right-heading">
