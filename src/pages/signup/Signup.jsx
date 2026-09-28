@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import { useAuth } from "../../contexts/AuthContext";
+import backArrow from "../../assets/Icons/back-arrow.png";
 import "./Signup.css";
 
 const Signup = () => {
@@ -60,7 +61,7 @@ const Signup = () => {
 
             {/* Back to Home */}
             <Link to="/" className="signup-back-home" id="signup-back-home-btn">
-                ← BACK TO HOME
+                <img src={backArrow} alt="" className="back-arrow-icon" /> BACK TO HOME
             </Link>
 
             {/* Background Overlay */}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import backArrow from "../../assets/Icons/back-arrow.png";
 import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
@@ -13,7 +14,7 @@ const PrivacyPolicy = () => {
 
             {/* Back to Home */}
             <Link to="/" className="pp-back-home" id="pp-back-home-btn">
-                ← BACK TO HOME
+                <img src={backArrow} alt="" className="back-arrow-icon" /> BACK TO HOME
             </Link>
 
             {/* Page Title */}

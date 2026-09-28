@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import backArrow from "../../assets/Icons/back-arrow.png";
 import "./TermsOfServices.css";
 
 const TermsOfServices = () => {
@@ -21,7 +22,7 @@ const TermsOfServices = () => {
 
             {/* Back to Home */}
             <Link to="/" className="tos-back-home" id="tos-back-home-btn">
-                ← BACK TO HOME
+                <img src={backArrow} alt="" className="back-arrow-icon" /> BACK TO HOME
             </Link>
 
             {/* Page Title */}
