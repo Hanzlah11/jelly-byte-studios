@@ -236,13 +236,14 @@ const Navbar = () => {
             )}
           </>
         ) : (
-          /* Guest: default profile silhouette */
-          <Link to="/login" className="profile-trigger guest" id="navbar-guest-profile">
-            <svg className="guest-avatar" width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="20" fill="#3a3a3a" />
-              <circle cx="20" cy="15" r="6" fill="#6b6b6b" />
-              <ellipse cx="20" cy="32" rx="10" ry="8" fill="#6b6b6b" />
-            </svg>
+          /* Guest: gaming profile badge */
+          <Link to="/login" className="profile-trigger guest" id="navbar-guest-profile" title="Sign In">
+            <div className="guest-avatar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
           </Link>
         )}
       </div>

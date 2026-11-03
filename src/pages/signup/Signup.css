@@ -105,17 +105,37 @@
 
     z-index: 10;
 
-    transition: opacity 0.2s ease;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.signup-back-home .back-arrow-icon {
+    transition: transform 0.25s ease;
 }
 
 .signup-back-home:hover {
-    opacity: 0.6;
+    color: #d5ff00;
+    opacity: 1;
+}
+
+.signup-back-home:hover .back-arrow-icon {
+    transform: translateX(-4px);
 }
 
 
 /* =========================
    SIGNUP CARD
 ========================= */
+
+@keyframes authCardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
 .signup-card {
     position: relative;
@@ -124,18 +144,34 @@
 
     padding: 32px 30px 32px;
 
-    background: rgba(30, 30, 30, 0.95);
+    background: rgba(22, 22, 25, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
-    border: 1px solid #caff00;
+    border: 1px solid rgba(202, 255, 0, 0.4);
 
-    border-radius: 20px;
+    border-radius: 22px;
 
     z-index: 2;
 
-
-
     box-shadow:
-        0 0 18px rgba(0, 0, 0, 0.55);
+        0 8px 24px rgba(0, 0, 0, 0.6),
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(202, 255, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    animation: authCardEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.signup-card:hover {
+    border-color: rgba(202, 255, 0, 0.75);
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.7),
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(202, 255, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 
@@ -227,7 +263,8 @@
 
     border: 1px solid #8c8c8c;
 
-    border-radius: 5px;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.45);
 
     color: #ffffff;
 

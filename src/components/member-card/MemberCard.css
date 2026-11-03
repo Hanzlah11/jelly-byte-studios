@@ -1,10 +1,27 @@
 .squad-card {
   background: #141416;
-  border: 1px solid #2a2a2d;
-  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow:
+      0 6px 18px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.squad-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(205, 234, 58, 0.3);
+  box-shadow:
+      0 14px 36px rgba(0, 0, 0, 0.55),
+      0 4px 8px rgba(0, 0, 0, 0.35),
+      0 0 20px rgba(205, 234, 58, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .squad-card__image-wrap {
@@ -18,6 +35,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.squad-card:hover .squad-card__image {
+  transform: scale(1.07);
 }
 
 .squad-card__body {
@@ -51,16 +73,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1px solid #2a2a2d;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .squad-card__link:hover,
 .squad-card__link:focus-visible {
   border-color: #cdea3a;
   color: #cdea3a;
+  transform: translateY(-2px);
+  box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.35),
+      0 0 12px rgba(205, 234, 58, 0.2);
   outline: none;
-}   
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .squad-card,
+  .squad-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .squad-card__image {
+    transition: none;
+  }
+
+  .squad-card:hover .squad-card__image {
+    transform: none;
+  }
+}

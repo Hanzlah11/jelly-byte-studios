@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import Button from "../../../components/button/Button"
+import Button from "../../../components/button/Button";
+import useScrollReveal from "../../../hooks/useScrollReveal";
 import "./ReviewsForm.css";
 
 const Reviews = () => {
   const [name, setName] = useState("");
   const [feedback, setFeedback] = useState("");
+
+  const headingReveal = useScrollReveal({ threshold: 0.2 });
+  const formReveal = useScrollReveal({ threshold: 0.15 });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +25,19 @@ const Reviews = () => {
   return (
     <section className="reviews">
 
-      <div className="reviews-heading">
+      <div
+        ref={headingReveal.ref}
+        className={`reviews-heading reveal-fade-up ${headingReveal.isVisible ? 'revealed' : ''}`}
+      >
         <span>REVIEWS</span>
         <p>DROP SOME FEEDBACK</p>
       </div>
 
-
-      <form className="feedback-form" onSubmit={handleSubmit}>
+      <form
+        ref={formReveal.ref}
+        className={`feedback-form reveal-scale-up ${formReveal.isVisible ? 'revealed' : ''}`}
+        onSubmit={handleSubmit}
+      >
 
         <p className="feedback-note">
           ALL IDEAS ARE WELCOMED, INCLUDING CRITIQUES
@@ -47,7 +57,6 @@ const Reviews = () => {
           />
         </div>
 
-
         <div className="reviews-input-group">
           <label htmlFor="feedback">
             YOUR FEEDBACK
@@ -60,7 +69,6 @@ const Reviews = () => {
             onChange={(e) => setFeedback(e.target.value)}
           ></textarea>
         </div>
-
 
         <Button text="SUBMIT" color=" #dfff00" size="11px" padding="6px 0px"/>
 

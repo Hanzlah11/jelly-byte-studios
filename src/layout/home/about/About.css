@@ -1,14 +1,14 @@
-#About{
+#About {
     margin: 40px 85px;
 }
 
-.about-upper{
+.about-upper {
     display: flex;
     justify-content: space-between;
-    align-items: center;  
+    align-items: center;
 }
 
-.about-upper-left{
+.about-upper-left {
     position: relative;
     width: 420px;
     height: 500px;
@@ -16,16 +16,14 @@
     flex-shrink: 0;
 }
 
-.about-background-shape{
+.about-background-shape {
     position: absolute;
     inset: 0;
 
-    clip-path: polygon(
-        5% 0%,
-        100% 5%,
-        100% 94%,
-        5% 100%
-    );
+    clip-path: polygon(5% 0%,
+            100% 5%,
+            100% 94%,
+            5% 100%);
 }
 
 .shape-1 {
@@ -40,26 +38,23 @@
 }
 
 .shape-2 {
-    background: linear-gradient(
-        135deg,
-        #6d20e8 0%,
-        #a8d7ff 55%,
-        #e8ffff 100%
-    );
+    background: linear-gradient(135deg,
+            #6d20e8 0%,
+            #a8d7ff 55%,
+            #e8ffff 100%);
 
     top: 0;
     left: 0;
 
     z-index: 2;
     filter:
-        drop-shadow(8px 10px 10px rgba(0, 0, 0, 0.45))
-        drop-shadow(0 0 15px rgba(109, 32, 232, 0.35));
+        drop-shadow(8px 10px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 15px rgba(109, 32, 232, 0.35));
 }
 
 .about-char-img {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 5%;
     transform: translateX(-50%);
     width: 105%;
     max-height: 110%;
@@ -68,36 +63,38 @@
     z-index: 3;
     pointer-events: none;
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+    animation: float 4s ease-in-out infinite;
 }
 
-.about-upper-right{
+.about-upper-right {
     width: 50%;
 }
 
-.about-right-heading{
+.about-right-heading {
     font-size: 100px;
     font-family: 'Road Rage', sans-serif;
 }
 
-.about-right-description{
+.about-right-description {
     font-size: 18px;
     margin-bottom: 30px;
 }
 
-.about-lower{
-    margin-top: 80px;   
+.about-lower {
+    margin-top: 80px;
 }
 
-.about-lower-heading{
+.about-lower-heading {
     font-size: 80px;
     font-family: 'Road Rage', sans-serif;
     display: flex;
     justify-content: center;
 }
 
-.about-lower-cards{
+.about-lower-cards {
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
     gap: 30px;
     margin-top: 50px;
     flex-wrap: wrap;

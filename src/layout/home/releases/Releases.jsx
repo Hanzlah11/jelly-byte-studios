@@ -2,6 +2,7 @@ import React from 'react'
 import GameCard from '../../../components/game-card/GameCard'
 import GettingUnderTheNerve from '../../../assets/Game/image.png'
 import './Releases.css'
+import useScrollReveal from '../../../hooks/useScrollReveal'
 
 const releases = [
     {
@@ -27,25 +28,39 @@ const releases = [
 ]
 
 const Releases = () => {
+    const headingReveal = useScrollReveal({ threshold: 0.2 });
+    const cardsReveal = useScrollReveal({ threshold: 0.1 });
+
     return (
         <div id='Releases'>
-            <div className="releases-heading">
+            <div
+                ref={headingReveal.ref}
+                className={`releases-heading reveal-fade-up ${headingReveal.isVisible ? 'revealed' : ''}`}
+            >
                 BUILD TO PLAY, MADE TO REMEMBER
             </div>
-            <div className="dash">
+            <div className={`dash reveal-fade-up ${headingReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.15s' }}>
                 <hr />
             </div>
 
-            <div className="releases-cards">
+            <div
+                ref={cardsReveal.ref}
+                className={`releases-cards stagger-children ${cardsReveal.isVisible ? 'cards-revealed' : ''}`}
+            >
                 {releases.map((release, index) => (
-                    <GameCard
+                    <div
                         key={index}
-                        title={release.title}
-                        description={release.description}
-                        image={release.image}
-                        link={release.link}
-                        comingSoon={release.comingSoon}
-                    />
+                        className={`releases-card-item reveal-fade-up ${cardsReveal.isVisible ? 'revealed' : ''}`}
+                        style={{ transitionDelay: `${index * 0.15}s` }}
+                    >
+                        <GameCard
+                            title={release.title}
+                            description={release.description}
+                            image={release.image}
+                            link={release.link}
+                            comingSoon={release.comingSoon}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

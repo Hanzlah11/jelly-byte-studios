@@ -32,7 +32,7 @@ const GameCard = ({ title, description, image, link, comingSoon }) => {
               {description}
             </p>
 
-            <Button text="LEARN MORE" size="12px" textColor="#b7e600" border="1px solid #b7e600" padding="8px 13px" className="game-card-button" to="/releases" />
+            <Button text="LEARN MORE" size="12px" fontWeight="bold" textColor="#b7e600" border="1px solid #b7e600" padding="8px 13px" className="game-card-button" to="/releases" />
           </div>
 
         </div>

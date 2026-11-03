@@ -19,7 +19,9 @@
 .dash hr{
     width: 100px;
     height: 5px;
-    background-color: #b7e600;
+    background: linear-gradient(90deg, #b7e600, #d8fa1f, #b7e600);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
     margin: 10px;
     border: none;
     border-radius: 5px;
@@ -31,6 +33,14 @@
     gap: 50px;
     margin-top: 3rem;
     flex-wrap: wrap;
+}
+
+.releases-card-item {
+    width: 350px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 /* Tablet */

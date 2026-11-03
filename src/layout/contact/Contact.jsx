@@ -1,15 +1,24 @@
 import React from "react";
-import Button from "../../components/button/Button"
+import Button from "../../components/button/Button";
+import useScrollReveal from "../../hooks/useScrollReveal";
 import "./Contact.css";
 
 const Contact = () => {
+  const headerReveal = useScrollReveal({ threshold: 0.15 });
+  const formReveal = useScrollReveal({ threshold: 0.15 });
+  const channelsReveal = useScrollReveal({ threshold: 0.15 });
+  const ctaReveal = useScrollReveal({ threshold: 0.2 });
+
   return (
     <div className="contact-page">
 
       {/* Contact Hero */}
       <section className="contact-section">
 
-        <div className="contact-header">
+        <div
+          ref={headerReveal.ref}
+          className={`contact-header reveal-fade-up ${headerReveal.isVisible ? 'revealed' : ''}`}
+        >
           <p className="main-heading">
             LET'S BUILD
             <br />
@@ -28,7 +37,10 @@ const Contact = () => {
         <div className="contact-grid">
 
           {/* Form */}
-          <div className="contact-form-box">
+          <div
+            ref={formReveal.ref}
+            className={`contact-form-box reveal-fade-left ${formReveal.isVisible ? 'revealed' : ''}`}
+          >
 
             <form>
 
@@ -75,7 +87,10 @@ const Contact = () => {
 
 
           {/* Direct Channels */}
-          <div className="direct-channels">
+          <div
+            ref={channelsReveal.ref}
+            className={`direct-channels reveal-fade-right ${channelsReveal.isVisible ? 'revealed' : ''}`}
+          >
 
             <p>
               DIRECT
@@ -123,7 +138,10 @@ const Contact = () => {
 
 
       {/* Bottom CTA */}
-      <section className="contact-cta">
+      <section
+        ref={ctaReveal.ref}
+        className={`contact-cta reveal-fade-up ${ctaReveal.isVisible ? 'revealed' : ''}`}
+      >
 
         <div className="cta-content">
 

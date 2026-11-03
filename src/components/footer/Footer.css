@@ -46,6 +46,29 @@
     text-decoration: none;
     color: rgb(165, 165, 165);
     font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease;
+    padding-bottom: 2px;
+}
+
+.footer-links ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #D8FA1F;
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.footer-links ul li a:hover {
+    color: #D8FA1F;
+}
+
+.footer-links ul li a:hover::after {
+    width: 100%;
 }
 
 /* Tablet */

@@ -10,13 +10,13 @@ const Hero = () => {
                 <img src={GUTN} alt="" />
             </div>
             <div className="releases-hero-content">
-                <div className="releases-hero-title">
+                <div className="releases-hero-title releases-animate-title">
                     GETTING UNDER THE NERVE
                 </div>
-                <div className="releases-hero-description">
+                <div className="releases-hero-description releases-animate-desc">
                     A brutal precision platformer where every jump tests your patience, reflexes, and sanity. Dodge deadly traps, survive unpredictable mechanics, and conquer levels designed to break you.
                 </div>
-                <div className="releases-hero-buttons">
+                <div className="releases-hero-buttons releases-animate-buttons">
                     <Button text="DOWNLOAD NOW" color="#dfff00" padding="20px 30px" href="https://share.google/7H5YgSYrvzJgmTM9B" />
                     <Button text="VIEW TRAILER" textColor="#dfff00" padding="20px 30px" href="#Trailer" />
                 </div>
