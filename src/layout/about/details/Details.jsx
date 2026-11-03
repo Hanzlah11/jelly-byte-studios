@@ -1,23 +1,19 @@
 import React from 'react'
 import "./Details.css"
-import useScrollReveal from '../../../hooks/useScrollReveal'
 
 const Details = () => {
-  const contentReveal = useScrollReveal({ threshold: 0.2 });
-  const statsReveal = useScrollReveal({ threshold: 0.2 });
-
   return (
     <section className="controlled-chaos">
-      <div className="chaos-content" ref={contentReveal.ref}>
+      <div className="chaos-content">
 
         {/* Left Side */}
-        <div className={`chaos-title reveal-fade-left ${contentReveal.isVisible ? 'revealed' : ''}`}>
+        <div className="chaos-title">
           <p>CONTROLLED CHAOS.</p>
           <span></span>
         </div>
 
         {/* Right Side */}
-        <div className={`chaos-description reveal-fade-right ${contentReveal.isVisible ? 'revealed' : ''}`}>
+        <div className="chaos-description">
           <p>
             At JellyByte, we don't believe in playing it safe. Our
             philosophy is rooted in the idea that the best interactive
@@ -37,19 +33,19 @@ const Details = () => {
       </div>
 
       {/* Stats */}
-      <div className="chaos-stats" ref={statsReveal.ref}>
+      <div className="chaos-stats">
 
-        <div className={`stat reveal-fade-up ${statsReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0s' }}>
+        <div className="stat">
           <h3>01</h3>
           <p>GAMES IN DEVELOPMENT</p>
         </div>
 
-        <div className={`stat reveal-fade-up ${statsReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.15s' }}>
+        <div className="stat">
           <h3>04</h3>
           <p>TEAM MEMBERS</p>
         </div>
 
-        <div className={`stat reveal-fade-up ${statsReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.3s' }}>
+        <div className="stat">
           <h3>99+</h3>
           <p>WILD IDEAS</p>
         </div>

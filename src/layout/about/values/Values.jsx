@@ -1,7 +1,6 @@
 import React from "react";
 import ValueCard from "../../../components/value-card/ValueCard";
 import "./Values.css";
-import useScrollReveal from '../../../hooks/useScrollReveal'
 
 import gameplayIcon from "../../../assets/Icons/Gameplay.png";
 import innovationIcon from "../../../assets/Icons/Innovation.png";
@@ -36,26 +35,18 @@ const values = [
 ];
 
 const ValuesSection = () => {
-  const titleReveal = useScrollReveal({ threshold: 0.3 });
-  const gridReveal = useScrollReveal({ threshold: 0.1 });
-
   return (
     <section className="values-section" aria-labelledby="values-title">
       <h2
-        ref={titleReveal.ref}
         id="values-title"
-        className={`values-section__title reveal-blur ${titleReveal.isVisible ? 'revealed' : ''}`}
+        className="values-section__title"
       >
         What Drives Everything We Build
       </h2>
 
-      <div ref={gridReveal.ref} className="values-section__grid">
-        {values.map((value, index) => (
-          <div
-            key={value.title}
-            className={`reveal-fade-up ${gridReveal.isVisible ? 'revealed' : ''}`}
-            style={{ transitionDelay: `${index * 0.15}s` }}
-          >
+      <div className="values-section__grid">
+        {values.map((value) => (
+          <div key={value.title}>
             <ValueCard {...value} />
           </div>
         ))}

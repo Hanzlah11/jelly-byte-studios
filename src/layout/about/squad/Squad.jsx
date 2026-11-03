@@ -5,7 +5,6 @@ import Mohib from "../../../assets/Team/Mohib.png"
 import Haider from "../../../assets/Team/Haider.png"
 import Rafay from "../../../assets/Team/Rafay.png"
 import "./Squad.css";
-import useScrollReveal from '../../../hooks/useScrollReveal'
 
 const squadMembers = [
   {
@@ -43,35 +42,25 @@ const squadMembers = [
 ];
 
 const SquadSection = () => {
-  const headerReveal = useScrollReveal({ threshold: 0.2 });
-  const gridReveal = useScrollReveal({ threshold: 0.1 });
-
   return (
     <section className="squad-section" aria-labelledby="squad-title">
-      <header
-        ref={headerReveal.ref}
-        className="squad-section__header"
-      >
+      <header className="squad-section__header">
         <p
           id="squad-title"
-          className={`squad-section__title reveal-fade-up ${headerReveal.isVisible ? 'revealed' : ''}`}
+          className="squad-section__title"
         >
           THE SQUAD BEHIND THE CHAOS
         </p>
-        <p className={`squad-section__subtitle reveal-fade-up ${headerReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.15s' }}>
+        <p className="squad-section__subtitle">
           Every member leads a key department while collaborating across every stage of development.
           Together, we combine creativity, technical expertise, and a shared passion for building
           unforgettable gaming experiences.
         </p>
       </header>
 
-      <div ref={gridReveal.ref} className="squad-section__grid">
-        {squadMembers.map((member, index) => (
-          <div
-            key={member.name}
-            className={`reveal-scale-up ${gridReveal.isVisible ? 'revealed' : ''}`}
-            style={{ transitionDelay: `${index * 0.12}s` }}
-          >
+      <div className="squad-section__grid">
+        {squadMembers.map((member) => (
+          <div key={member.name}>
             <MemberCard {...member} />
           </div>
         ))}

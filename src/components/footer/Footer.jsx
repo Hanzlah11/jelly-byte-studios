@@ -1,14 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Footer.css"
-import useScrollReveal from '../../hooks/useScrollReveal'
 
 const Footer = () => {
-  const footerReveal = useScrollReveal({ threshold: 0.15 });
-
   return (
-    <div id='Footer' ref={footerReveal.ref}>
-        <div className={`footer-left reveal-fade-up ${footerReveal.isVisible ? 'revealed' : ''}`}>
+    <div id='Footer'>
+        <div className="footer-left">
             <div className="footer-main-heading">
                 JELLYBYTE STUDIOS
             </div>
@@ -19,7 +16,7 @@ const Footer = () => {
                 © 2024 JELLYBYTE STUDIOS. ALL RIGHTS RESERVED.
             </div>
         </div>
-        <div className={`footer-mid reveal-fade-up ${footerReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.12s' }}>
+        <div className="footer-mid">
             <div className="footer-links-heading">
                 SOCIALS
             </div>
@@ -32,7 +29,7 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-        <div className={`footer-right reveal-fade-up ${footerReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.24s' }}>
+        <div className="footer-right">
             <div className="footer-links-heading">
                 CONTACT
             </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import GameCard from '../../../components/game-card/GameCard'
 import GettingUnderTheNerve from '../../../assets/Game/image.png'
 import './Releases.css'
-import useScrollReveal from '../../../hooks/useScrollReveal'
 
 const releases = [
     {
@@ -28,30 +27,20 @@ const releases = [
 ]
 
 const Releases = () => {
-    const headingReveal = useScrollReveal({ threshold: 0.2 });
-    const cardsReveal = useScrollReveal({ threshold: 0.1 });
-
     return (
         <div id='Releases'>
-            <div
-                ref={headingReveal.ref}
-                className={`releases-heading reveal-fade-up ${headingReveal.isVisible ? 'revealed' : ''}`}
-            >
+            <div className="releases-heading">
                 BUILD TO PLAY, MADE TO REMEMBER
             </div>
-            <div className={`dash reveal-fade-up ${headingReveal.isVisible ? 'revealed' : ''}`} style={{ transitionDelay: '0.15s' }}>
+            <div className="dash">
                 <hr />
             </div>
 
-            <div
-                ref={cardsReveal.ref}
-                className={`releases-cards stagger-children ${cardsReveal.isVisible ? 'cards-revealed' : ''}`}
-            >
+            <div className="releases-cards">
                 {releases.map((release, index) => (
                     <div
                         key={index}
-                        className={`releases-card-item reveal-fade-up ${cardsReveal.isVisible ? 'revealed' : ''}`}
-                        style={{ transitionDelay: `${index * 0.15}s` }}
+                        className="releases-card-item"
                     >
                         <GameCard
                             title={release.title}
